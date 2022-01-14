@@ -3,7 +3,7 @@ const UserRouter = require('./UserRouter');
 const CommentRouter = require('./CommentRouter');
 const RecommendationRouter = require('./RecommendationRouter');
 const CrimeTipRouter = require('./CrimeTipRouter');
-const NeighborhoodRouter = requie('./NeighborhoodRouter');
+const NeighborhoodRouter = require('./NeighborhoodRouter');
 Router.use('/users', UserRouter);
 Router.use('/comments', CommentRouter);
 Router.use('/recommendadtions', RecommendationRouter);

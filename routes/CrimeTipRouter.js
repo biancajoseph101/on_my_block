@@ -3,7 +3,7 @@ const controller = require('../controllers/CrimeTipController');
 
 Router.post('/', controller.CreateCrimeTip);
 Router.get('/', controller.getAllCrimeTips);
-Router.put('/', controller.updateCrimeTip);
-Router.delete('/', controller.deleteCrimeTip);
+Router.put('/:crime_id', controller.updateCrimeTip);
+Router.delete('/:crime_id', controller.deleteCrimeTip);
 
 module.exports = Router;

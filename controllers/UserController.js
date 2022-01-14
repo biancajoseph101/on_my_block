@@ -14,7 +14,7 @@ const CreateUser = async (req, res) => {
 
 const getAllUsers = async (req, res) => {
   try {
-    const users = await User.find();
+    const users = await User.findAll();
     return res.status(200).json({ users });
   } catch (error) {
     return res.status(500).send(error.message);
@@ -23,32 +23,24 @@ const getAllUsers = async (req, res) => {
 
 const updateUser = async (req, res) => {
   try {
-    const { id } = req.params;
-    await User.findByIdAndUpdate(id, req.body, { new: true }, (err, users) => {
-      if (err) {
-        res.status(500).send(err);
-      }
-      if (!users) {
-        res.status(500).send('Profile not found!');
-      }
-      return res.status(200).json(users);
+    let userId = parseInt(req.params.user_id);
+    let updatedUser = await User.update(req.body, {
+      where: { id: userId },
+      returning: true
     });
+    res.send(updatedUser);
   } catch (error) {
-    console.log(error.message);
-    return res.status(500);
+    throw error;
   }
 };
 
 const deleteUser = async (req, res) => {
   try {
-    const { id } = req.params;
-    const deleted = await User.findByIdAndDelete(id);
-    if (deleted) {
-      return res.status(200).send('Recipe deleted');
-    }
-    throw new Error('User not found');
+    let userId = parseInt(req.params.user_id);
+    await User.destroy({ where: { id: userId } });
+    res.send({ message: `Deleted user with an id of ${userId}` });
   } catch (error) {
-    return res.status(500).send(error.message);
+    throw error;
   }
 };
 

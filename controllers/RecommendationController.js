@@ -1,8 +1,8 @@
-const { Recommendations } = require('../models');
-const CreateRecommendations = async (req, res) => {
+const { Recommendation } = require('../models');
+const CreateRecommendation = async (req, res) => {
   console.log(req.body);
   try {
-    const recommendations = await Recommendations.create(req.body);
+    const recommendations = await Recommendation.create(req.body);
     console.log(recommendations);
     await recommendations.save();
     return res.status(201).json({ recommendations });
@@ -13,52 +13,39 @@ const CreateRecommendations = async (req, res) => {
 
 const GetAllRecommendations = async (req, res) => {
   try {
-    const recommendations = await Recommendations.find();
+    const recommendations = await Recommendation.findAll();
     return res.status(200).json({ recommendations });
   } catch (error) {
     return res.status(500).send(error.message);
   }
 };
 
-const UpdateRecommendations = async (req, res) => {
+const UpdateRecommendation = async (req, res) => {
   try {
-    const { id } = req.params;
-    await Recommendations.findByIdAndUpdate(
-      id,
-      req.body,
-      { new: true },
-      (err, recommendations) => {
-        if (err) {
-          res.status(500).send(err);
-        }
-        if (!recommendations) {
-          res.status(500).send('Recommendation not found!');
-        }
-        return res.status(200).json(recommendations);
-      }
-    );
+    let recommendationId = parseInt(req.params.recommendation_id);
+    let updatedRecommendation = await Recommendation.update(req.body, {
+      where: { id: recommendationId },
+      returning: true
+    });
+    res.send(updatedRecommendation);
   } catch (error) {
-    console.log(error.message);
-    return res.status(500);
+    throw error;
   }
 };
 
-const DeleteRecommendations = async (req, res) => {
+const DeleteRecommendation = async (req, res) => {
   try {
-    const { id } = req.params;
-    const deleted = await Recommendations.findByIdAndDelete(id);
-    if (deleted) {
-      return res.status(200).send('Recommendations deleted');
-    }
-    throw new Error('Recommendations not found');
+    let recommendationId = parseInt(req.params.recommendation_id);
+    await Recommendation.destroy({ where: { id: recommendationId } });
+    res.send({ message: `Deleted rec with an id of ${recommendationId}` });
   } catch (error) {
-    return res.status(500).send(error.message);
+    throw error;
   }
 };
 
 module.exports = {
-  CreateRecommendations,
-  DeleteRecommendations,
-  UpdateRecommendations,
+  CreateRecommendation,
+  DeleteRecommendation,
+  UpdateRecommendation,
   GetAllRecommendations
 };

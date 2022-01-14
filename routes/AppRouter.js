@@ -1,12 +1,12 @@
 const Router = require('express').Router();
 const UserRouter = require('./UserRouter');
 const CommentRouter = require('./CommentRouter');
-const RecommendadtionRouter = require('./RecommendadtionRouter');
+const RecommendationRouter = require('./RecommendationRouter');
 const CrimeTipRouter = require('./CrimeTipRouter');
 const NeighborhoodRouter = requie('./NeighborhoodRouter');
 Router.use('/users', UserRouter);
 Router.use('/comments', CommentRouter);
-Router.use('/recommendadtions', RecommendadtionRouter);
+Router.use('/recommendadtions', RecommendationRouter);
 Router.use('/neighborhoods', NeighborhoodRouter);
 Router.use('/tips', CrimeTipRouter);
 module.exports = Router;

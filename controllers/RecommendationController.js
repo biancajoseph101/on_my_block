@@ -11,7 +11,7 @@ const CreateRecommendations = async (req, res) => {
   }
 };
 
-const GetAllRecommendationss = async (req, res) => {
+const GetAllRecommendations = async (req, res) => {
   try {
     const recommendations = await Recommendations.find();
     return res.status(200).json({ recommendations });
@@ -60,5 +60,5 @@ module.exports = {
   CreateRecommendations,
   DeleteRecommendations,
   UpdateRecommendations,
-  GetAllRecommendationss
+  GetAllRecommendations
 };

@@ -6,7 +6,7 @@ const CrimeTipRouter = require('./CrimeTipRouter');
 const NeighborhoodRouter = require('./NeighborhoodRouter');
 Router.use('/users', UserRouter);
 Router.use('/comments', CommentRouter);
-Router.use('/recommendadtions', RecommendationRouter);
+Router.use('/recommendations', RecommendationRouter);
 Router.use('/neighborhoods', NeighborhoodRouter);
 Router.use('/tips', CrimeTipRouter);
 module.exports = Router;

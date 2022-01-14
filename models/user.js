@@ -8,6 +8,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+      User.belongsTo(models.Neighborhood, {
+        foreignKey: 'neighborhoodId'
+      });
       // define association here
     }
   }
@@ -16,7 +19,11 @@ module.exports = (sequelize, DataTypes) => {
       username: DataTypes.STRING,
       password: DataTypes.STRING,
       email: DataTypes.STRING,
-      neighborhoodId: DataTypes.INTEGER
+      neighborhoodId: DataTypes.INTEGER,
+      references: {
+        model: 'neighborhoods',
+        key: 'id'
+      }
     },
     {
       sequelize,

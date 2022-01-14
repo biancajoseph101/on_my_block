@@ -8,6 +8,12 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+      Recommendation.belongsTo(models.Neighborhood, {
+        foreignKey: 'neighborhoodId'
+      });
+      Recommendation.belongsTo(models.User, {
+        foreignKey: 'userId'
+      });
       // define association here
     }
   }
@@ -15,8 +21,20 @@ module.exports = (sequelize, DataTypes) => {
     {
       category: DataTypes.STRING,
       content: DataTypes.STRING,
-      neighborhoodId: DataTypes.INTEGER,
-      userId: DataTypes.INTEGER
+      neighborhoodId: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'neighborhoods',
+          key: 'id'
+        },
+        userId: {
+          type: DataTypes.INTEGER,
+          references: {
+            model: 'users',
+            key: 'id'
+          }
+        }
+      }
     },
     {
       sequelize,

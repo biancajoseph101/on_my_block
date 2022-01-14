@@ -1,6 +1,6 @@
 # **ON MY BLOCK**
 
-[ On My Block App](www.linkedin.com/biancaclairejoseph) | [Trello](https://trello.com/b/6YQIfgNk/on-my-block) | [Presentation](https://github.com/biancajoseph101)
+[ On My Block App](www.linkedin.com/biancaclairejoseph) | [Trello](https://trello.com/b/6YQIfgNk/on-my-block) | [Presentation](https://docs.google.com/presentation/d/1dZ0a4pu5cIhSksLojSuZa5WLPNdwoxLcTuiJQrp3DOY/edit?usp=sharing)
 
 #### Due Date: 1/14/2022 10:00EST
 
@@ -8,13 +8,13 @@
 
 ### **_Created By:_**
 
-#### Bianca Joseph | [GitHub](https://github.com/biancajoseph101) | [LinkedIn](www.linkedin.com/biancaclairejoseph)
+#### Bianca Joseph | [GitHub](https://github.com/biancajoseph101) | [LinkedIn](https://www.linkedin.com/in/biancaclairejoseph)
 
-#### Nashid Alam | [GitHub](https://github.com/Nashid-Alam) | [LinkedIn](www.linkedin.com/nashid-alam-02602147)
+#### Nashid Alam | [GitHub](https://github.com/Nashid-Alam) | [LinkedIn](https://www.linkedin.com/in/nashid-alam-02602147)
 
-#### Calvin Menyfield | [GitHub](https://github.com/Kiiris) | [LinkedIn](www.linkedin.com/calvin-menyfield)
+#### Calvin Menyfield | [GitHub](https://github.com/Kiiris) | [LinkedIn](https://www.linkedin.com/in/calvin-menyfield)
 
-#### Abidur Rahman | [GitHub](https://github.com/dipta3124) | [LinkedIn](www.linkedin.com/abidurrahmandipta)
+#### Abidur Rahman | [GitHub](https://github.com/dipta3124) | [LinkedIn](https://www.linkedin.com/in/abidurrahmandipta)
 
 ---
 

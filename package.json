@@ -1,0 +1,32 @@
+{
+  "name": "on_my_block",
+  "version": "1.0.0",
+  "description": "[ On My Block App](www.linkedin.com/biancaclairejoseph) | [Trello](https://trello.com/b/6YQIfgNk/on-my-block) | [Presentation](https://docs.google.com/presentation/d/1dZ0a4pu5cIhSksLojSuZa5WLPNdwoxLcTuiJQrp3DOY/edit?usp=sharing)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/biancajoseph101/on_my_block.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/biancajoseph101/on_my_block/issues"
+  },
+  "homepage": "https://github.com/biancajoseph101/on_my_block#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "pg": "^8.7.1",
+    "sequelize": "^6.13.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

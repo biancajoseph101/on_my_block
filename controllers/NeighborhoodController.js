@@ -13,7 +13,7 @@ const CreateNeighborhood = async (req, res) => {
 
 const getAllNeighborhoods = async (req, res) => {
   try {
-    const neighborhoods = await Neighborhood.find();
+    const neighborhoods = await Neighborhood.findAll();
     return res.status(200).json({ neighborhoods });
   } catch (error) {
     return res.status(500).send(error.message);
@@ -22,37 +22,26 @@ const getAllNeighborhoods = async (req, res) => {
 
 const updateNeighborhood = async (req, res) => {
   try {
-    const { id } = req.params;
-    await Neighborhood.findByIdAndUpdate(
-      id,
-      req.body,
-      { new: true },
-      (err, neighborhoods) => {
-        if (err) {
-          res.status(500).send(err);
-        }
-        if (!neighborhoods) {
-          res.status(500).send('Location not found!');
-        }
-        return res.status(200).json(neighborhoods);
-      }
-    );
+    let neighborhoodId = parseInt(req.params.neighborhood_id);
+    let updatedNeighborhood = await Neighborhood.update(req.body, {
+      where: { id: neighborhoodId },
+      returning: true
+    });
+    res.send(updatedNeighborhood);
   } catch (error) {
-    console.log(error.message);
-    return res.status(500);
+    throw error;
   }
 };
 
 const deleteNeighborhood = async (req, res) => {
   try {
-    const { id } = req.params;
-    const deleted = await Neighborhood.findByIdAndDelete(id);
-    if (deleted) {
-      return res.status(200).send('Neighborhood deleted');
-    }
-    throw new Error('Neighborhood not found');
+    let neighborhoodId = parseInt(req.params.neighborhood_id);
+    await Neighborhood.destroy({ where: { id: neighborhoodId } });
+    res.send({
+      message: `Deleted neighborhood with an id of ${neighborhoodId}`
+    });
   } catch (error) {
-    return res.status(500).send(error.message);
+    throw error;
   }
 };
 

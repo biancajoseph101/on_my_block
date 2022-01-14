@@ -5,7 +5,7 @@ const CreateComment = async (req, res) => {
   try {
     const comments = await Comment.create(req.body);
     console.log(comments);
-    await products.save();
+    await comments.save();
     return res.status(201).json({ comments });
   } catch (error) {
     return res.status(500).json({ error: error.message });
@@ -13,7 +13,7 @@ const CreateComment = async (req, res) => {
 };
 const getAllComments = async (req, res) => {
   try {
-    const comments = await Comment.find();
+    const comments = await Comment.findAll();
     return res.status(200).json({ comments });
   } catch (error) {
     return res.status(500).send(error.message);
@@ -22,37 +22,24 @@ const getAllComments = async (req, res) => {
 
 const updateComment = async (req, res) => {
   try {
-    const { id } = req.params;
-    await Comment.findByIdAndUpdate(
-      id,
-      req.body,
-      { new: true },
-      (err, comments) => {
-        if (err) {
-          res.status(500).send(err);
-        }
-        if (!comments) {
-          res.status(500).send('Comment not found!');
-        }
-        return res.status(200).json(comments);
-      }
-    );
+    let commentId = parseInt(req.params.comment_id);
+    let updatedComment = await Comment.update(req.body, {
+      where: { id: commentId },
+      returning: true
+    });
+    res.send(updatedComment);
   } catch (error) {
-    console.log(error.message);
-    return res.status(500);
+    throw error;
   }
 };
 
 const deleteComment = async (req, res) => {
   try {
-    const { id } = req.params;
-    const deleted = await Comment.findByIdAndDelete(id);
-    if (deleted) {
-      return res.status(200).send('Comment deleted');
-    }
-    throw new Error('Comment not found');
+    let commentId = parseInt(req.params.comment_id);
+    await Comment.destroy({ where: { id: commentId } });
+    res.send({ message: `Deleted comment with an id of ${commentId}` });
   } catch (error) {
-    return res.status(500).send(error.message);
+    throw error;
   }
 };
 

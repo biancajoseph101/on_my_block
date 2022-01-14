@@ -1,4 +1,5 @@
 const { CrimeTip } = require('../models');
+
 const CreateCrimeTip = async (req, res) => {
   console.log(req.body);
   try {
@@ -13,7 +14,7 @@ const CreateCrimeTip = async (req, res) => {
 
 const getAllCrimeTips = async (req, res) => {
   try {
-    const tips = await CrimeTip.find();
+    const tips = await CrimeTip.findAll();
     return res.status(200).json({ tips });
   } catch (error) {
     return res.status(500).send(error.message);
@@ -22,37 +23,24 @@ const getAllCrimeTips = async (req, res) => {
 
 const updateCrimeTip = async (req, res) => {
   try {
-    const { id } = req.params;
-    await CrimeTip.findByIdAndUpdate(
-      id,
-      req.body,
-      { new: true },
-      (err, tips) => {
-        if (err) {
-          res.status(500).send(err);
-        }
-        if (!tips) {
-          res.status(500).send('Tip not found');
-        }
-        return res.status(200).json(tips);
-      }
-    );
+    let crimeId = parseInt(req.params.crime_id);
+    let updatedCrime = await CrimeTip.update(req.body, {
+      where: { id: crimeId },
+      returning: true
+    });
+    res.send(updatedCrime);
   } catch (error) {
-    console.log(error.message);
-    return res.status(500);
+    throw error;
   }
 };
 
 const deleteCrimeTip = async (req, res) => {
   try {
-    const { id } = req.params;
-    const deleted = await CrimeTip.findByIdAndDelete(id);
-    if (deleted) {
-      return res.status(200).send('CrimeTip deleted');
-    }
-    throw new Error('CrimeTip not found');
+    let crimeId = parseInt(req.params.crime_id);
+    await CrimeTip.destroy({ where: { id: crimeId } });
+    res.send({ message: `Deleted crime with an id of ${crimeId}` });
   } catch (error) {
-    return res.status(500).send(error.message);
+    throw error;
   }
 };
 

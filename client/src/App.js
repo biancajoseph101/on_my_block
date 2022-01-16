@@ -1,11 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
-import SearchBar from './components/SearchBar';
+import { Route, Switch } from 'react-router-dom';
+import Home from './pages/Home';
+import Recommendations from './pages/Recommendations';
 
 function App() {
   return (
     <div className="App">
-      <SearchBar />
+      <main>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/recommendations" component={Recommendations} />
+        </Switch>
+      </main>
     </div>
   );
 }

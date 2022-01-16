@@ -1,4 +1,6 @@
-const { CrimeTip } = require('../models');
+const { CrimeTip, Neighborhood } = require('../models');
+const { Op } = require('sequelize')
+
 
 const CreateCrimeTip = async (req, res) => {
   console.log(req.body);
@@ -44,9 +46,22 @@ const deleteCrimeTip = async (req, res) => {
   }
 };
 
+// {where: {'title' : {[Op.like]: '%' + title + '%'}}}
+
+const searchCrimeTip = async (req, res) => {
+  try{
+    // const {name} = req.query;
+    let item = await CrimeTip.findAll({include: [{model: Neighborhood, where: {'zipcode' : req.query.zipcode}}]})
+    return res.status(200).json({ item });
+  }catch (error){
+    return res.status(500).send(error.message);
+  }
+}
+
 module.exports = {
   CreateCrimeTip,
   deleteCrimeTip,
   updateCrimeTip,
-  getAllCrimeTips
+  getAllCrimeTips,
+  searchCrimeTip
 };

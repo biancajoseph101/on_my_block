@@ -5,18 +5,18 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     const crimetips = [
       {
-        title: 'Robbery',
-        content: 'There was a robbery on Tree Street at 4 pm on Saturday.',
-        neighborhoodId: 27,
-        userId: 10,
+        title: 'Pointed finger at someone',
+        content: 'A guy pointed his fingers at another guy because he was cool',
+        neighborhoodId: 7,
+        userId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        title: 'Assault',
-        content: 'There was an assault near Walmart at 2 pm on Wednesday.',
-        neighborhoodId: 33,
-        userId: 11,
+        title: 'Attempted Stealing',
+        content: 'A person lied to his friend telling he will pay 50% for the restaurant bill but ended up saying it`s april fool`s day yeeee!!!',
+        neighborhoodId: 8,
+        userId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
       }

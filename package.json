@@ -20,13 +20,11 @@
   },
   "homepage": "https://github.com/biancajoseph101/on_my_block#readme",
   "dependencies": {
-    "bcrypt": "^5.0.1",
+    "axios": "^0.24.0",
     "body-parser": "^1.19.1",
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "faker": "^5.5.1",
-    "jsonwebtoken": "^8.5.1",
-    "morgan": "^1.10.0",
     "pg": "^8.7.1",
     "sequelize": "^6.13.0"
   },
@@ -34,3 +32,4 @@
     "nodemon": "^2.0.15"
   }
 }
+

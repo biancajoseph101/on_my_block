@@ -3,6 +3,7 @@ function CrimeCard(props) {
     <div>
       <h4>{props.crime.title}</h4>
       <p>{props.crime.content}</p>
+      <button>Comments</button>
     </div>
   )
 }

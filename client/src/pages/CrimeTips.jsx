@@ -7,23 +7,23 @@ function CrimeTips(props) {
   const [crimes, setCrimes] = useState([])
 
   const getAllCrimes = async () => {
-    const response = await axios.get(`${baseUrl}/tips`)
-    setCrimes(response.data)
+    // const response = await axios.get(`${baseUrl}/tips`)
+    // setCrimes(response.data)
     setCrimes([
       {
-        _id: "1",
-        title: "crime 1",
-        content: "content 1",
+        username: "froglov",
+        title: 'Robbery',
+        content: 'There was a robbery on Tree Street at 4 pm on Saturday.If anyone has been the suspect please call the police, the suspect is 5 3 brown hair, brown eyes',
       },
       {
-        _id: "2",
-        title: "crime 2",
-        content: "content 2",
+        username: "nalam",
+        title: "Assult",
+        content: 'There was an assault near Walmart at 2 pm on Wednesday.',
       },
       {
-        _id: "3",
-        title: "crime 3",
-        content: "content 3",
+        username: "elis",
+        title: "missing",
+        content: "There was a person seen stealing my neighbours cat at 200 west elm street, please report the suspect to police",
       },
     ])
   }

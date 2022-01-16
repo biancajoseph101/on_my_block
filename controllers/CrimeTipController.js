@@ -1,4 +1,4 @@
-const { CrimeTip } = require('../models');
+const { CrimeTip,Comment } = require('../models');
 
 const CreateCrimeTip = async (req, res) => {
   console.log(req.body);
@@ -14,7 +14,8 @@ const CreateCrimeTip = async (req, res) => {
 
 const getAllCrimeTips = async (req, res) => {
   try {
-    const tips = await CrimeTip.findAll();
+    const tips = await CrimeTip.findAll({
+      include:[Comment]});
     return res.status(200).json({ tips });
   } catch (error) {
     return res.status(500).send(error.message);

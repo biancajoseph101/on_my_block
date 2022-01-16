@@ -3,16 +3,16 @@ const middleware = require('../middleware');
 const Login = async (req, res) => {
   try {
     const user = await User.findOne({
-      where: { email: req.body.email },
+      where: { username: req.body.username },
       raw: true
     });
     if (
       user &&
-      (await middleware.comparePassword(user.passwordDigest, req.body.password))
+      (await middleware.comparePassword(user.password, req.body.password))
     ) {
       let payload = {
         id: user.id,
-        email: user.email
+        username: user.username
       };
       let token = middleware.createToken(payload);
       return res.send({ user: payload, token });
@@ -23,10 +23,11 @@ const Login = async (req, res) => {
   }
 };
 
-const Register = async (req, res) => {
+const Signup = async (req, res) => {
   try {
     const { email, password, name } = req.body;
     let passwordDigest = await middleware.hashPassword(password);
+    //this next line is using the variable passwordDigest to scramble the password of the user -Calvin
     const user = await User.create({ email, passwordDigest, name });
     res.send(user);
   } catch (error) {
@@ -40,11 +41,9 @@ const UpdatePassword = async (req, res) => {
     const user = await User.findByPk(req.params.user_id);
     if (
       user &&
-      (await middleware.comparePassword(
-        user.dataValues.passwordDigest,
-        oldPassword
-      ))
+      (await middleware.comparePassword(user.dataValues.password, oldPassword))
     ) {
+      //the same thing for this next line as well -Calvin
       let passwordDigest = await middleware.hashPassword(newPassword);
       await user.update({ passwordDigest });
       return res.send({ status: 'Ok', payload: user });
@@ -60,7 +59,7 @@ const CheckSession = async (req, res) => {
 
 module.exports = {
   Login,
-  Register,
+  Signup,
   UpdatePassword,
   CheckSession
 };

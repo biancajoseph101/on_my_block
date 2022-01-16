@@ -7,7 +7,7 @@ function CrimeTips(props) {
   const [crimes, setCrimes] = useState([])
 
   const getAllCrimes = async () => {
-    // const response = await axios.get(`${baseUrl}/tips`)
+    // const response = await axios.get(`${baseUrl}/tips/crimeid`)
     // setCrimes(response.data)
     setCrimes([
       {

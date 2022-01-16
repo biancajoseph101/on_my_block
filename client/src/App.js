@@ -1,8 +1,7 @@
-
-import "./App.css"
-import { Route, Switch } from "react-router-dom"
-import Home from "./pages/Home"
-import CrimeTips from "./pages/CrimeTips"
+import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import Home from './pages/Home';
+import Recommendations from './pages/Recommendations';
 
 function App() {
   return (
@@ -10,11 +9,11 @@ function App() {
       <main>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/crime-tips" component={CrimeTips} />
+          <Route exact path="/recommendations" component={Recommendations} />
         </Switch>
       </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

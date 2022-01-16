@@ -19,8 +19,17 @@ const getAllCrimeTips = async (req, res) => {
     return res.status(200).json({ tips });
   } catch (error) {
     return res.status(500).send(error.message);
+  };
   }
-};
+  const getCrimeTipById = async (req, res) => {
+    try {
+      let crimeId = parseInt(req.params.crime_id);
+      const tips = await CrimeTip.findByPk(crimeId);
+      return res.status(200).json({ tips });
+    } catch (error) {
+      return res.status(500).send(error.message);
+    };
+    }
 
 const updateCrimeTip = async (req, res) => {
   try {
@@ -49,5 +58,7 @@ module.exports = {
   CreateCrimeTip,
   deleteCrimeTip,
   updateCrimeTip,
-  getAllCrimeTips
+  getAllCrimeTips,
+  getCrimeTipById,
+
 };

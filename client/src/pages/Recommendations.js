@@ -3,11 +3,20 @@ import axios from 'axios';
 import RecommendationCard from '../components/RecommendationCard';
 
 function Recommendations(props) {
-  const [recommendations, setRecommendations] = useState([]);
-
   const [search, setSearch] = useState('');
   const [click, setClick] = useState(false);
   const [results, setResults] = useState([]);
+  const [likes, setLikes] = useState({
+    likes: 0
+  });
+
+  const handleLike = async (e) => {
+    e.preventDefault();
+    await axios.put(
+      `http://localhost:3001/api/recommendations/search?zipcode=${search}`,
+      { likes: setLikes(likes + 1) }
+    );
+  };
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -43,6 +52,10 @@ function Recommendations(props) {
                 <h3>Category: {element.category}</h3>
                 <p>{element.content}</p>
                 <br />
+                <button onClick={handleLike} className="likes">
+                  like
+                </button>
+                <h1>{likes}</h1>
               </div>
             );
           })

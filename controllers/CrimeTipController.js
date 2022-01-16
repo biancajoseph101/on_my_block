@@ -1,7 +1,4 @@
-const { CrimeTip, Neighborhood } = require('../models');
-const { Op } = require('sequelize')
-
-
+const { CrimeTip, Comment } = require('../models');
 const CreateCrimeTip = async (req, res) => {
   console.log(req.body);
   try {
@@ -13,16 +10,25 @@ const CreateCrimeTip = async (req, res) => {
     return res.status(500).json({ error: error.message });
   }
 };
-
 const getAllCrimeTips = async (req, res) => {
   try {
-    const tips = await CrimeTip.findAll();
+    const tips = await CrimeTip.findAll({
+      include: [Comment]
+    });
     return res.status(200).json({ tips });
   } catch (error) {
     return res.status(500).send(error.message);
   }
 };
-
+const getCrimeTipById = async (req, res) => {
+  try {
+    let crimeId = parseInt(req.params.crime_id);
+    const tips = await CrimeTip.findByPk(crimeId);
+    return res.status(200).json({ tips });
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
+};
 const updateCrimeTip = async (req, res) => {
   try {
     let crimeId = parseInt(req.params.crime_id);
@@ -35,7 +41,6 @@ const updateCrimeTip = async (req, res) => {
     throw error;
   }
 };
-
 const deleteCrimeTip = async (req, res) => {
   try {
     let crimeId = parseInt(req.params.crime_id);
@@ -45,23 +50,10 @@ const deleteCrimeTip = async (req, res) => {
     throw error;
   }
 };
-
-// {where: {'title' : {[Op.like]: '%' + title + '%'}}}
-
-const searchCrimeTip = async (req, res) => {
-  try{
-    // const {name} = req.query;
-    let item = await CrimeTip.findAll({include: [{model: Neighborhood, where: {'zipcode' : req.query.zipcode}}]})
-    return res.status(200).json({ item });
-  }catch (error){
-    return res.status(500).send(error.message);
-  }
-}
-
 module.exports = {
   CreateCrimeTip,
   deleteCrimeTip,
   updateCrimeTip,
   getAllCrimeTips,
-  searchCrimeTip
+  getCrimeTipById
 };

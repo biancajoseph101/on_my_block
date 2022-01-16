@@ -1,4 +1,5 @@
-const { Recommendation } = require('../models');
+const { Recommendation, Neighborhood } = require('../models');
+
 const CreateRecommendation = async (req, res) => {
   console.log(req.body);
   try {
@@ -8,6 +9,17 @@ const CreateRecommendation = async (req, res) => {
     return res.status(201).json({ recommendations });
   } catch (error) {
     return res.status(500).json({ error: error.message });
+  }
+};
+
+const GetRecommendationsByNeighborhood = async (req, res) => {
+  try {
+    const neighborhoodRecommendations = await Recommendation.findAll({
+      include: [{ model: Neighborhood, where: { zipcode: req.query.zipcode } }]
+    });
+    return res.status(200).json({ neighborhoodRecommendations });
+  } catch (error) {
+    return res.status(500).send(error.message);
   }
 };
 
@@ -47,5 +59,6 @@ module.exports = {
   CreateRecommendation,
   DeleteRecommendation,
   UpdateRecommendation,
-  GetAllRecommendations
+  GetAllRecommendations,
+  GetRecommendationsByNeighborhood
 };

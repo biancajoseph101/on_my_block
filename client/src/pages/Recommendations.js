@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import RecommendationCard from '../components/RecommendationCard';
 
 function Recommendations(props) {
   const [search, setSearch] = useState('');

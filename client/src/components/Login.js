@@ -11,7 +11,7 @@ export default function Login() {
   //maybe these states/functions/usestate should be in App.js instead -Calvin
 
   const [authenticated, toggleAuthenticated] = useState(false);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState('');
   const handleLogOut = () => {
     //Reset all auth related state and clear localstorage
     setUser(null);
@@ -42,32 +42,41 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = await LoginUser(formValues);
-    setFormValues({ username: '', password: '' });
+    // setFormValues({ username: '', password: '' });
     setUser(payload);
     toggleAuthenticated(true);
   };
 
   return (
     <div>
-      <h1>Login Page</h1>
+      <h1>Whats the Talk of the Town?</h1>
+      <hr />
+      {authenticated === true ? <h1>Welcome Back, {user.username}</h1> : null}
       <form onSubmit={handleSubmit}>
         <input
+          className="logininput"
           onChange={handleChange}
           name="username"
           type="text"
           placeholder="put your username here"
           value={formValues.username}
+          size={40}
         />
         <input
+          className="logininput"
           onChange={handleChange}
           name="password"
           type="password"
           placeholder="put your password here"
           value={formValues.password}
+          size={40}
         />
-        <button>Login</button>
+        <button className="loginbutton">Login</button>
       </form>
-      <button onClick={handleLogOut}>LogOut</button>
+
+      <button onClick={handleLogOut} className="logoutbutton">
+        LogOut
+      </button>
     </div>
   );
 }

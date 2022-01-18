@@ -6,17 +6,17 @@ module.exports = {
     const users = [
       {
         username: 'biancajoseph',
-        password: 'crazypassword',
+        passwordDigest: 'crazypassword',
         email: 'bianca@gmail.com',
-        neighborhoodId: 27,
+        neighborhoodId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         username: 'froglover',
-        password: 'frogpassword',
+        passwordDigest: 'frogpassword',
         email: 'frog@gmail.com',
-        neighborhoodId: 32,
+        neighborhoodId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
       }

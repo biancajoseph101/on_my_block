@@ -1,18 +1,23 @@
-import React from "react"
-import axios from "axios"
+import React from 'react';
+import axios from 'axios';
 
-function CrimeTipPost() {
+function CrimeTipPost(props) {
   async function createCrimeTip(e) {
-    e.preventDefault()
-    const zipcode = e.target.zipcode.value
-    const response = await axios.get(`http://localhost:3001/api/neighborhoods/search?zipcode=${zipcode}`)
+    e.preventDefault();
+    const zipcode = e.target.zipcode.value;
+    const response = await axios.get(
+      `http://localhost:3001/api/neighborhoods/search?zipcode=${zipcode}`
+    );
     const newCrime = {
       title: e.target.title.value,
       content: e.target.content.value,
       neighborhoodId: response.data.id,
-      userId: "1",
-    }
-    const postResponse = await axios.post("http://localhost:3001/api/tips/", newCrime)
+      userId: props.userId
+    };
+    const postResponse = await axios.post(
+      'http://localhost:3001/api/tips/',
+      newCrime
+    );
   }
 
   return (
@@ -50,7 +55,7 @@ function CrimeTipPost() {
         <button type="submit">Submit</button>
       </form>
     </div>
-  )
+  );
 }
 
-export default CrimeTipPost
+export default CrimeTipPost;

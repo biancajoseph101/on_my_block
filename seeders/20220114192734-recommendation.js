@@ -8,8 +8,8 @@ module.exports = {
         category: 'Restaurants',
         content:
           'Black Walnut is an amazing local diner with a plethora of options.',
-        neighborhoodId: 27,
-        userId: 10,
+        neighborhoodId: 2,
+        userId: 3,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -17,8 +17,8 @@ module.exports = {
         category: 'Healthcare',
         content:
           'Dr. Jones at Mercy Hospital is incredible. He has been helping me for years.',
-        neighborhoodId: 41,
-        userId: 11,
+        neighborhoodId: 4,
+        userId: 4,
         createdAt: new Date(),
         updatedAt: new Date()
       }

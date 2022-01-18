@@ -8,15 +8,16 @@ module.exports = {
         title: 'Pointed finger at someone',
         content: 'A guy pointed his fingers at another guy because he was cool',
         neighborhoodId: 7,
-        userId: 1,
+        userId: 3,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         title: 'Attempted Stealing',
-        content: 'A person lied to his friend telling he will pay 50% for the restaurant bill but ended up saying it`s april fool`s day yeeee!!!',
-        neighborhoodId: 8,
-        userId: 2,
+        content:
+          'A person lied to his friend telling he will pay 50% for the restaurant bill but ended up saying it`s april fool`s day yeeee!!!',
+        neighborhoodId: 1,
+        userId: 6,
         createdAt: new Date(),
         updatedAt: new Date()
       }

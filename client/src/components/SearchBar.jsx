@@ -15,9 +15,11 @@ const SearchBar = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const res = await axios.get(`http://localhost:3001/api/tips/search?zipcode=${search}`)
+        console.log(res.data.item)
         setResults(res.data.item)
         setClick(true)
         setSearch('')
+        
     }
 
 

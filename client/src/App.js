@@ -2,7 +2,6 @@ import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import Recommendations from './pages/Recommendations';
-import CrimeTip from './pages/CrimeTip';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import NavBar from './components/NavBar';

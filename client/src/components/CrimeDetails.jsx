@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import UpdateCrime from "./UpdateCrime";
+import Comments from "./Comments";
+import CreateComment from "./CreateComment";
 
 const CrimeDetails = (props) => {
 
@@ -36,6 +37,10 @@ const CrimeDetails = (props) => {
             {updateButton}
             {/* <button onClick={handleDelete}>Delete</button> */}
             {deleteButton}
+            <br /><br />
+            <CreateComment {...props} neighborhoodId={results.neighborhoodId} id={props.id} />
+            <br />
+            <Comments {...props} id={props.id} />
         </div>
     )
 }

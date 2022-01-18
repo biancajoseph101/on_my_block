@@ -23,10 +23,8 @@ const SearchBar = (props) => {
 
     return (
         <div>
-            <h1>Hi</h1>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="search">Zipcode: </label>
-                {/* <input type="text" id="search" value={search} onChange={handleChange} /> */}
                 <select name="search" id="search" onChange={handleChange}>
                     <option value="">Choose...</option>
                     <option value='75056'>75056</option>

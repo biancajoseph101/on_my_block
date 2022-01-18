@@ -6,5 +6,4 @@ Router.get('/search', controller.searchCrimeTip);
 Router.get('/:crime_id', controller.getCrimeTipById);
 Router.put('/:crime_id', controller.updateCrimeTip);
 Router.delete('/:crime_id', controller.deleteCrimeTip);
-
 module.exports = Router;

@@ -1,5 +1,14 @@
 .App {
   text-align: center;
+  background:url('https://img1.goodfon.com/wallpaper/nbig/f/86/doroga-asfalt-dozhd-noch.jpg');
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 .App-logo {
@@ -7,32 +16,200 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
+/* 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+
+} */
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+nav {
+
+  align-items: right;
+  font-family: 'Cabin Sketch', cursive;
+  margin-right: 1.5em;
+  text-align: center;
+  padding: 1em  1em 1em 40rem;
+  background-color: #92772dd5; 
+  color: #d4cee2; 
+  opacity: .4;
+  border: .2em outset rgb(10, 4, 39);
+  border-top-left-radius: 5em 5em; 
+  border-top-right-radius: 5em 5em; 
+  border-bottom-left-radius: 5em 5em;
+  border-bottom-right-radius: 5em 5em;
+  transition: all 0.5s;
+}
+
+nav:hover {
+  padding: .8em .8em .8em 50rem;
+  opacity: 1; 
+   border: .5em groove rgb(26, 26, 3);
+}
+
+form {
+  background: none;   
+  color: #222222;
+  padding: 1.5rem 2rem;
+  text-align: left;
+}
+
+.logininput{
+  height:4vh;
+  margin: 1.2em;
+  background:rgb(199, 199, 105);
+  border: .4em outset rgb(219, 205, 205);
+  opacity: .6;
+  padding: .4rem .4rem .4rem .4rem;
+  transition: all .2s;
+}
+
+.logininput:hover{
+  background:yellow;
+  opacity: 1;
+  border: .4em outset black;
+}
+
+.loginbutton{
+  height: 20%;
+  border-radius:2em;
+  padding:0.4em .4em ;
+  display: inline-block;
+        background-color: rgb(180, 180, 140);
+        border-radius: .3em;
+        border: .1em double #cccccc;
+        color: white;
+        text-align: center;
+        font-size: .5em;
+        min-width: 8vw;
+        /* box-shadow: 0 0 .5rem .5rem black; */
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 1.5rem;
+}
+
+.loginbutton:hover{
+
+  background-color: yellow;
+  color: black;
+  box-shadow: 0 0 .4rem .4rem white;
+}
+h1{
+  font-family: 'Acme', sans-serif;
+  color: orangered;
+}
+
+.sign {
+  background: url("https://www.wallpaperuse.com/wallp/0-5544_m.jpg");
+  background-size: cover;
+color: black;
+  border: .1em solid black;
+  box-shadow: 1rem 1rem 1rem 1rem rgb(29, 12, 7);
+  color: #ffffff;
+  border-radius: 1em;
+  padding: 0.5em;
+  margin: 1.2rem;
+  max-width: 30vw;
+  min-height: 60vh;
+  text-align: center;
+  opacity: .7;
+  
+}
+.signinput{
+height: 20%;
+  padding: 0.5em;
+  margin: .8em;
+  border-top-left-radius: 2em 2em; 
+  border-top-right-radius: 2em 2em; 
+  border-bottom-left-radius: 2em 2em;
+  border-bottom-right-radius: 2em 2em;
+}
+
+/* CSS */
+.button-74 {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 .2rem .3rem 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  margin: 3em;
+  font-weight: 600;
+  font-size: .9em;
+  line-height: 2em;
+    touch-action: manipulation;
+    transition: all .4s
+}
+
+.button-74:hover {
+  background-color: #fff;
+  box-shadow: 0 0 .4rem .4rem white;
+  transform: translate(.5rem, .5rem);
+}
+
+.button-74:active {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .button-74 {
+    min-width: 120px;
+    padding: 0 25px;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+/* I might edit this later - Calvin*/
+.logoutbutton {
+  appearance: button;
+  background-color: #000;
+  background-image: none;
+  border: 1px solid #000;
+  border-radius: 4px;
+  box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: ITCAvantGardeStd-Bk,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0 5px 10px 0;
+  overflow: visible;
+  padding: 12px 40px;
+  text-align: center;
+  text-transform: none;
+  touch-action: manipulation;
+  transition: all .4s;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.logoutbuttonfocus {
+  text-decoration: none;
+}
+
+.logoutbutton:hover {
+  text-decoration: none;
+  background-color: rgb(56, 55, 55)
+}
+
+.logoutbutton:active {
+  box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
+  outline: 0;
+}
+
+.logoutbutton:not([disabled]):active {
+  box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .logoutbutton {
+    padding: 12px 50px;
   }
 }

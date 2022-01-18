@@ -11,10 +11,10 @@ function Recommendations(props) {
 
   const handleLike = async (e) => {
     e.preventDefault();
-    await axios.put(
-      `http://localhost:3001/api/recommendations/search?zipcode=${search}`,
-      { likes: setLikes(likes + 1) }
-    );
+    console.log(props);
+    await axios.put(`http://localhost:3001/api/recommendations/${id}`, {
+      likes: setLikes(likes++)
+    });
   };
 
   const handleChange = (e) => {
@@ -39,6 +39,8 @@ function Recommendations(props) {
           <option value="">Choose...</option>
           <option value="75019"> 75056 </option>
           <option value="10528"> 10528 </option>
+          <option value="60629"> 60629 </option>
+          <option value="83702"> 83702 </option>
         </select>
         <button>Submit</button>
       </form>

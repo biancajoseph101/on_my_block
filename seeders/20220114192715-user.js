@@ -1,12 +1,11 @@
 'use strict';
-const faker = require('faker');
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const users = [
       {
         username: 'biancajoseph',
-        password: 'crazypassword',
+        passwordDigest: 'crazypassword',
         email: 'bianca@gmail.com',
         neighborhoodId: 27,
         createdAt: new Date(),
@@ -14,7 +13,7 @@ module.exports = {
       },
       {
         username: 'froglover',
-        password: 'frogpassword',
+        passwordDigest: 'frogpassword',
         email: 'frog@gmail.com',
         neighborhoodId: 32,
         createdAt: new Date(),

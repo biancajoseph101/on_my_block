@@ -26,7 +26,6 @@ const CreateComment = (props) => {
             <form onSubmit={handleSubmit}>
                 <label htmlFor="content">Content: </label>
                 <textarea id="content" type='text' onChange={handleChange} />
-
                 <button>Submit</button>
             </form>
         </div>

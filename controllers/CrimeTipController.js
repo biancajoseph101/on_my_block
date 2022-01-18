@@ -52,16 +52,14 @@ const deleteCrimeTip = async (req, res) => {
 };
 
 const searchCrimeTip = async (req, res) => {
-  try {
+  try{
     // const {name} = req.query;
-    let item = await CrimeTip.findAll({
-      include: [{ model: Neighborhood, where: { zipcode: req.query.zipcode } }]
-    });
+    let item = await CrimeTip.findAll({include: [{model: Neighborhood, where: {'zipcode' : req.query.zipcode}}]})
     return res.status(200).json({ item });
-  } catch (error) {
+  }catch (error){
     return res.status(500).send(error.message);
   }
-};
+}
 
 module.exports = {
   CreateCrimeTip,

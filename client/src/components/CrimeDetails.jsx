@@ -40,6 +40,7 @@ const CrimeDetails = (props) => {
             <br /><br />
             <CreateComment {...props} neighborhoodId={results.neighborhoodId} id={props.id} />
             <br />
+
             <Comments {...props} id={props.id} />
         </div>
     )

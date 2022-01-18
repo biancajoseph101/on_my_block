@@ -31,37 +31,48 @@ export default function Signup() {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          onChange={handleChange}
-          id="username"
-          type="text"
-          placeholder="Username here"
-          value={newUser.username}
-        />
-        <input
-          onChange={handleChange}
-          id="email"
-          type="text"
-          placeholder="Email goes here"
-          value={newUser.email}
-        />
-        <input
-          onChange={handleChange}
-          id="password"
-          type="password"
-          placeholder="Password here"
-          value={newUser.password}
-        />
-        <input
-          onChange={handleChange}
-          type="password"
-          id="confirmPassword"
-          placeholder="Confirm password"
-          value={newUser.confirmPassword}
-        />
-        <button>Sign Up!</button>
-      </form>
+      <h1>Catchy Thing To Say Here</h1>
+      <div className="sign">
+        <form onSubmit={handleSubmit}>
+          <input
+            className="signinput"
+            onChange={handleChange}
+            id="username"
+            type="text"
+            placeholder="Username here"
+            value={newUser.username}
+            size="40"
+          />
+          <input
+            className="signinput"
+            onChange={handleChange}
+            id="email"
+            type="text"
+            placeholder="Email goes here"
+            value={newUser.email}
+            size="40"
+          />
+          <input
+            className="signinput"
+            onChange={handleChange}
+            id="password"
+            type="password"
+            placeholder="Password here"
+            value={newUser.password}
+            size="40"
+          />
+          <input
+            className="signinput"
+            onChange={handleChange}
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm password"
+            value={newUser.confirmPassword}
+            size="40"
+          />
+          <button className="button-74">Sign Up!</button>
+        </form>
+      </div>
     </div>
   );
 }

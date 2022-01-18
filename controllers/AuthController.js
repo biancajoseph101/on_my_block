@@ -8,7 +8,7 @@ const Login = async (req, res) => {
     });
     if (
       user &&
-      (await middleware.comparePassword(user.password, req.body.password))
+      (await middleware.comparePassword(user.passwordDigest, req.body.password))
     ) {
       let payload = {
         id: user.id,
@@ -25,10 +25,10 @@ const Login = async (req, res) => {
 
 const Signup = async (req, res) => {
   try {
-    const { email, password, name } = req.body;
+    const { email, password, username } = req.body;
     let passwordDigest = await middleware.hashPassword(password);
     //this next line is using the variable passwordDigest to scramble the password of the user -Calvin
-    const user = await User.create({ email, passwordDigest, name });
+    const user = await User.create({ email, passwordDigest, username });
     res.send(user);
   } catch (error) {
     throw error;

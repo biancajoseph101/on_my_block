@@ -1,7 +1,7 @@
 import React from "react"
 import axios from "axios"
 
-function CrimeTipPost() {
+function CrimeTipPost(props) {
   async function createCrimeTip(e) {
     e.preventDefault()
     const zipcode = e.target.zipcode.value
@@ -10,7 +10,7 @@ function CrimeTipPost() {
       title: e.target.title.value,
       content: e.target.content.value,
       neighborhoodId: response.data.id,
-      userId: "1",
+      userId: props.userId,
     }
     const postResponse = await axios.post("http://localhost:3001/api/tips/", newCrime)
   }

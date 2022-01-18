@@ -1,4 +1,5 @@
 import './App.css';
+import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import Recommendations from './pages/Recommendations';
@@ -9,8 +10,37 @@ import SearchBar from './components/SearchBar';
 import CrimeDetails from './components/CrimeDetails';
 import UpdateCrime from './components/UpdateCrime';
 import CrimeTipPost from './pages/CrimeTipPost';
+import { CheckSession } from './services/Auth'
 
-function App() {
+function App(props) {
+
+  const [authenticated, toggleAuthenticated] = useState(false);
+  const [user, setUser] = useState('');
+
+  const handleLogOut = () => {
+    //Reset all auth related state and clear localstorage
+    setUser(null);
+    toggleAuthenticated(false);
+    localStorage.clear();
+  };
+
+  const checkToken = async () => {
+    //If a token exists, sends token to localstorage to persist logged in user
+    const user = await CheckSession();
+    setUser(user);
+    toggleAuthenticated(true);
+  };
+
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    // Check if token exists before requesting to validate the token
+    if (token) {
+      checkToken();
+    }
+  }, []);
+
+
   return (
     <div className="App">
       <header>
@@ -19,12 +49,12 @@ function App() {
       <main>
         <Switch>
           <Route exact path="/crimes/update/:id" component={UpdateCrime} />
-          <Route exact path="/crimes/:id" component={CrimeDetails} />
+          <Route exact path="/crimes/:id" component={(props) => <CrimeDetails {...props}  id={user.id} />} />
           <Route exact path="/recommendations" component={Recommendations} />
           <Route exact path="/signup" component={Signup} />
-          <Route path="/login" component={Login} />
+          <Route path="/login" component={() =><Login {...props} setUser={setUser} toggleAuthenticated={toggleAuthenticated} authenticated={authenticated} user={user} handleLogOut={handleLogOut}/>} />
           <Route exact path="/home" component={Home} />
-          <Route exact path="/crimepost" component={CrimeTipPost} />
+          <Route exact path="/crimepost" component={() => <CrimeTipPost {...props} userId={user.id} />} />
           <Route path="/" component={SearchBar} />
         </Switch>
       </main>

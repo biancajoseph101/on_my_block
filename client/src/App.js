@@ -22,7 +22,6 @@ function App() {
           <Route exact path="/crimes/update/:id" component={UpdateCrime} />
           <Route exact path="/crimes/:id" component={CrimeDetails} />
           <Route exact path="/recommendations" component={Recommendations} />
-          <Route exact path="/crimes" component={CrimeTip} />
           <Route exact path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <Route exact path="/home" component={Home} />

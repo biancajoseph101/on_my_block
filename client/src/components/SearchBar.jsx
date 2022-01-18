@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const SearchBar = () => {
+const SearchBar = (props) => {
 
 
     const [search, setSearch] = useState('')
@@ -40,14 +40,16 @@ const SearchBar = () => {
                 <button>Submit</button>
             </form>
 
+            <form onSubmit={handleSubmit}>
+                <input type="text" id="search" value={search} onChange={handleChange} />
+                <button>Submit</button>
+            </form>
+
             {
                 (click) ? results.map((element) => {
                     return (
-                        <div key={element.id}>
+                        <div key={element.id} onClick={() => props.history.push(`/crimes/${element.id}`)}>
                             <h3>{element.title}</h3>
-                            <p>{element.content}</p>
-                            <h3>Neighborhood name:{element.Neighborhood.name}</h3>
-                            <h3>Zipcode: {element.Neighborhood.zipcode}</h3>
                             <br />
                         </div>
                     )

@@ -23,13 +23,15 @@ const About = () => {
             <a href="https://www.linkedin.com/in/biancaclairejoseph/">Bianca</a>
           </h6>
           <h6>
-            <a href="https://www.linkedin.com/in/grantmenke/">Nashid</a>
+            <a href="https://www.linkedin.com/in/nashid-alam-02602147/">
+              Nashid
+            </a>
           </h6>
           <h6>
             <a href="https://www.linkedin.com/in/abidurrahmandipta">Abidur</a>
           </h6>
           <h6>
-            <a href="https://www.linkedin.com/in/gihaec/">Calvin</a>
+            <a href="https://www.linkedin.com/in/calvin-menyfield/">Calvin</a>
           </h6>
         </div>
       </div>

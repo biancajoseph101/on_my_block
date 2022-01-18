@@ -14,12 +14,10 @@ const Safety = () => {
             </a>
           </h6>
           <h6>
-            <a href="https://www.linkedin.com/in/grantmenke/">
-              Emergency Management
-            </a>
+            <a href="https://www.linkedin.com/in/">Emergency Management</a>
           </h6>
           <h6>
-            <a href="https://www.linkedin.com/in/gihaec/">Crime Data</a>
+            <a href="https://www.crimedata.com">Crime Data</a>
           </h6>
           <h6>
             <a href="https://www.linkedin.com/in/abidurrahmandipta">

@@ -53,7 +53,7 @@ function App(props) {
         <Switch>
           <Route exact path="/crimes/update/:id" component={UpdateCrime} />
           <Route exact path="/crimes/:id" component={(props) => <CrimeDetails {...props}  id={user.id} authenticated={authenticated}/>} />
-          <Route exact path="/recommendations" component={Recommendations} />
+          <Route exact path="/recommendations" component={()=> <Recommendations authenticated={authenticated} />} />
           <Route exact path="/signup" component={Signup} />
           <Route path="/login" component={() =><Login {...props} setUser={setUser} toggleAuthenticated={toggleAuthenticated} authenticated={authenticated} user={user} handleLogOut={handleLogOut}/>} />
           <Route exact path="/home" component={Home} />

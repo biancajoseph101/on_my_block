@@ -24,16 +24,16 @@ const CrimeDetails = (props) => {
     }
 
 
-    const updateButton = (results.userId === props.id) ? <div><h3 className="errortext">If you see an error you may edit or delete this report below</h3> <hr/> <button className="editbutton" onClick={() => props.history.push(`/crimes/update/${props.match.params.id}`)} >EDIT</button></div> : null;
+    const updateButton = (results.userId === props.id) ? <div><h3 className="errortext">If you see an error you may edit or delete this report below</h3> <hr /> <button className="editbutton" onClick={() => props.history.push(`/crimes/update/${props.match.params.id}`)} >EDIT</button></div> : null;
 
     const deleteButton = (results.userId === props.id) ? <button className="xbutton" onClick={handleDelete}>DELETE REPORT</button> : null;
 
     return (
         <div>
             <div>
-                <img className="alertimage" src="/C132EAB6-3B84-44AE-AD95-DE94BABBF8C7.png"/>
-                <h1>There are reports that there was a {results.title} in the area</h1>
-                <hr/>
+                <img className="alertimage" src="/C132EAB6-3B84-44AE-AD95-DE94BABBF8C7.png" />
+                <h1>{results.title}</h1>
+                <hr />
                 <p>The person or persons who committed the {results.title} allegedly {results.content}. Please be safe out there.</p>
             </div>
             <br />

@@ -10,6 +10,7 @@ import SearchBar from './components/SearchBar';
 import CrimeDetails from './components/CrimeDetails';
 import UpdateCrime from './components/UpdateCrime';
 import CrimeTipPost from './pages/CrimeTipPost';
+import About from './pages/About'
 
 import { CheckSession } from './services/Auth'
 

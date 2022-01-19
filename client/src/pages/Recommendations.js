@@ -20,6 +20,18 @@ function Recommendations(props) {
     setClick(true);
   };
 
+  // Neighborhood Data
+  const [zips, setZips] = useState([])
+
+  const getNeighborhoods = async (e) => {
+      const res = await axios.get(`http://localhost:3001/api/neighborhoods/`)
+      setZips(res.data.neighborhoods)
+  }
+
+  useEffect(() => {
+      getNeighborhoods()
+  }, [])
+
   return (
     <div className="recListing">
       <h1>Recommendations</h1>

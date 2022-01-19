@@ -8,15 +8,15 @@ module.exports = {
         content: 'I totally agree.',
         neighborhoodId: 7,
         userId: 4,
-        crimeId: 15,
+        crimeId: 3,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         content: 'This is so true.',
-        neighborhoodId: 41,
+        neighborhoodId: 8,
         userId: 4,
-        crimeId: 16,
+        crimeId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       }

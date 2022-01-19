@@ -7,7 +7,7 @@ module.exports = {
         username: 'biancajoseph',
         passwordDigest: 'crazypassword',
         email: 'bianca@gmail.com',
-        neighborhoodId: 2,
+        neighborhoodId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -23,7 +23,7 @@ module.exports = {
         username: 'coco',
         passwordDigest: 'coco2',
         email: 'coco@gmail.com',
-        neighborhoodId: 34,
+        neighborhoodId: 3,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -31,7 +31,7 @@ module.exports = {
         username: 'jerry1',
         passwordDigest: 'jerry1',
         email: 'jerry@gmail.com',
-        neighborhoodId: 2,
+        neighborhoodId: 4,
         createdAt: new Date(),
         updatedAt: new Date()
       },

@@ -4,6 +4,7 @@ import axios from 'axios'
 
 function Likes(props) {
     const [likes, setLikes] = useState(0);
+    const [click, setClick] = useState(false)
 
     const handleLike = async (e) => {
         e.preventDefault();

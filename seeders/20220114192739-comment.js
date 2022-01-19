@@ -6,17 +6,17 @@ module.exports = {
     const comments = [
       {
         content: 'I totally agree.',
-        neighborhoodId: 7,
+        neighborhoodId: 1,
         userId: 4,
-        crimeId: 15,
+        crimeId: 10,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         content: 'This is so true.',
-        neighborhoodId: 41,
+        neighborhoodId: 8,
         userId: 4,
-        crimeId: 16,
+        crimeId: 11,
         createdAt: new Date(),
         updatedAt: new Date()
       }

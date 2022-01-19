@@ -16,8 +16,12 @@ function CrimeTipPost(props) {
       title: e.target.title.value,
       content: e.target.content.value,
       neighborhoodId: response.data[0].id,
-      userId: props.userId
-    };
+
+      userId: props.userId,
+    }
+    
+    const postResponse = await axios.post("http://localhost:3001/api/tips/", newCrime)
+    setClick(true)
 
     const postResponse = await axios.post(
       'http://localhost:3001/api/tips/',

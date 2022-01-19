@@ -1,3 +1,4 @@
+import { Link, Redirect } from 'react-router-dom'
 import React, { useState, useEffect } from 'react';
 import { LoginUser } from '../services/Auth';
 
@@ -7,36 +8,6 @@ export default function Login(props) {
     password: ''
   });
 
-  //maybe these states/functions/usestate should be in App.js instead -Calvin
-
-  // const [authenticated, toggleAuthenticated] = useState(false);
-  // const [user, setUser] = useState('');
-  // const handleLogOut = () => {
-  //   //Reset all auth related state and clear localstorage
-  //   setUser(null);
-  //   toggleAuthenticated(false);
-  //   localStorage.clear();
-  // };
-
-  // const checkToken = async () => {
-  //   //If a token exists, sends token to localstorage to persist logged in user
-  //   const user = await CheckSession();
-  //   setUser(user);
-  //   toggleAuthenticated(true);
-  // };
-
-  // //this probably especially should be in App.js -Calvin
-  // useEffect(() => {
-  //   const token = localStorage.getItem('token');
-  //   // Check if token exists before requesting to validate the token
-  //   if (token) {
-  //     checkToken();
-  //   }
-  // }, []);
-
-  // const handleChange = (e) => {
-  //   setFormValues({ ...formValues, [e.target.name]: e.target.value });
-  // };
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
@@ -51,11 +22,10 @@ export default function Login(props) {
 
   return (
     <div>
-      <h1>Whats the Talk of the Town?</h1>
+      
       <hr />
-      {props.authenticated === true ? (
-        <h1>Welcome Back, {props.user.username}</h1>
-      ) : null}
+      {props.authenticated === true ? <Redirect to='/' /> : null}
+
       <form onSubmit={handleSubmit}>
         <input
           className="logininput"
@@ -77,10 +47,7 @@ export default function Login(props) {
         />
         <button className="loginbutton">Login</button>
       </form>
-
-      <button onClick={props.handleLogOut} className="logoutbutton">
-        LogOut
-      </button>
+      <h1>Don't have an account?<Link to='/signup'>Sign Up</Link></h1>
     </div>
   );
 }

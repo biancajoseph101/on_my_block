@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { SignupUser } from '../services/Auth';
 
 const newForm = {
@@ -9,6 +10,9 @@ const newForm = {
 };
 
 export default function Signup() {
+
+  const [signup, setSignup] = useState(false)
+
   const [newUser, setUser] = useState({
     username: '',
     email: '',
@@ -28,10 +32,16 @@ export default function Signup() {
       password: newUser.password
     });
     setUser(newForm);
+    setSignup(true)
   };
   return (
     <div>
       <h1>Catchy Thing To Say Here</h1>
+      {
+        (signup)?
+          <h1>Created account succesfully!!!<Link to='/login'>Login</Link></h1>
+          : null
+      }
       <div className="sign">
         <form onSubmit={handleSubmit}>
           <input
@@ -42,6 +52,7 @@ export default function Signup() {
             placeholder="Username here"
             value={newUser.username}
             size="40"
+            required
           />
           <input
             className="signinput"
@@ -51,6 +62,7 @@ export default function Signup() {
             placeholder="Email goes here"
             value={newUser.email}
             size="40"
+            required
           />
           <input
             className="signinput"
@@ -60,6 +72,7 @@ export default function Signup() {
             placeholder="Password here"
             value={newUser.password}
             size="40"
+            required
           />
           <input
             className="signinput"
@@ -69,6 +82,7 @@ export default function Signup() {
             placeholder="Confirm password"
             value={newUser.confirmPassword}
             size="40"
+            required
           />
           <button className="button-74">Sign Up!</button>
         </form>

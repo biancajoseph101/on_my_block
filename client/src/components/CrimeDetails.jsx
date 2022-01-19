@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import UpdateCrime from "./UpdateCrime";
+import Comments from "./Comments";
+import CreateComment from "./CreateComment";
 
 const CrimeDetails = (props) => {
 
@@ -19,7 +20,9 @@ const CrimeDetails = (props) => {
 
     const handleDelete = () => {
         axios.delete(`http://localhost:3001/api/tips/${props.match.params.id}`)
+        props.history.push('/')
     }
+
 
     const updateButton = (results.userId === props.id) ? <div><h3 className="errortext">If you see an error you may edit or delete this report below</h3> <hr/> <button className="editbutton" onClick={() => props.history.push(`/crimes/update/${props.match.params.id}`)} >EDIT</button></div> : null;
 
@@ -36,6 +39,11 @@ const CrimeDetails = (props) => {
             <br />
             {updateButton}
             {deleteButton}
+            <br /><br />
+            <CreateComment {...props} neighborhoodId={results.neighborhoodId} id={props.id} authenticated={props.authenticated} />
+            <br />
+
+            <Comments {...props} id={props.id} />
         </div>
     )
 }

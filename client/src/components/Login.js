@@ -1,4 +1,4 @@
-import { Link, Redirect } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import { LoginUser } from '../services/Auth';
 
@@ -22,9 +22,8 @@ export default function Login(props) {
 
   return (
     <div>
-      
       <hr />
-      {props.authenticated === true ? <Redirect to='/' /> : null}
+      {props.authenticated === true ? <Redirect to="/" /> : null}
 
       <form onSubmit={handleSubmit}>
         <input
@@ -32,7 +31,7 @@ export default function Login(props) {
           onChange={handleChange}
           name="username"
           type="text"
-          placeholder="put your username here"
+          placeholder="enter username"
           value={formValues.username}
           size={40}
         />
@@ -41,13 +40,15 @@ export default function Login(props) {
           onChange={handleChange}
           name="password"
           type="password"
-          placeholder="put your password here"
+          placeholder="enter password"
           value={formValues.password}
           size={40}
         />
         <button className="loginbutton">Login</button>
       </form>
-      <h1>Don't have an account?<Link to='/signup'>Sign Up</Link></h1>
+      <h1>
+        Don't have an account?<Link to="/signup">Sign Up</Link>
+      </h1>
     </div>
   );
 }

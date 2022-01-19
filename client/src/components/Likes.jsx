@@ -4,14 +4,21 @@ import axios from "axios"
 
 function Likes(props) {
   const [likes, setLikes] = useState(0)
+
+  const getlikes = async (e) => {
+    const likes = await axios.get(`http://localhost:3001/api/recommendations/${props.recommendation_id}`)
+    setLikes(likes.data.recommendation.likes)
+    
+}
+getlikes()
+  const [newlikes, setNewLikes] = useState(0)
   const [click, setClick] = useState(false)
 
   const handleLike = async (e) => {
     e.preventDefault()
     console.log(props)
     const newlikes = likes+1
-    setLikes(newlikes)
-    console.log(likes)
+    setNewLikes(newlikes)
     console.log(newlikes)
     console.log(click)
 
@@ -28,12 +35,11 @@ function Likes(props) {
     } else if (click === true) {
       
       setClick(false)
-      setLikes(likes-1)
-      console.log(likes)
+      setNewLikes(likes-1)
       await axios.put(
         `http://localhost:3001/api/recommendations/${props.recommendation_id}`,
         {
-          likes:likes,
+          likes:newlikes,
         }
       )
     }

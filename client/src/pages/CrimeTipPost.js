@@ -10,14 +10,17 @@ function CrimeTipPost(props) {
     e.preventDefault()
     const zipcode = e.target.zipcode.value
     const response = await axios.get(`http://localhost:3001/api/neighborhoods/search?zipcode=${zipcode}`)
+    console.log(response.data[0].id)
     const newCrime = {
       title: e.target.title.value,
       content: e.target.content.value,
       neighborhoodId: response.data.id,
       userId: props.userId,
     }
+    
     const postResponse = await axios.post("http://localhost:3001/api/tips/", newCrime)
     setClick(true)
+
   }
 
   return (
@@ -66,7 +69,7 @@ function CrimeTipPost(props) {
       }
 
     </div>
-  )
+  );
 }
 
-export default CrimeTipPost
+export default CrimeTipPost;

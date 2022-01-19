@@ -15,9 +15,11 @@ const SearchBar = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const res = await axios.get(`http://localhost:3001/api/tips/search?zipcode=${search}`)
+        console.log(res.data.item)
         setResults(res.data.item)
         setClick(true)
         setSearch('')
+        
     }
 
     // Neighborhood Data
@@ -36,11 +38,12 @@ const SearchBar = (props) => {
         <div>
 
             {
-                (props.authenticated) ? <h1>Welcome back {props.username}!</h1> : null
+                (props.authenticated) ? <h1>Welcome back, {props.username}!</h1> : null
             }
-            <h1>Whats the Talk of the Town?</h1>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="search">Zipcode: </label>
+            <h1>What's the Talk of the Town?</h1>
+            <form className="homeform" onSubmit={handleSubmit}>
+                <label htmlFor="search">Zip Code: </label>
+
                 <select name="search" id="search" onChange={handleChange}>
                     <option value="">Choose...</option>
                     {
@@ -54,18 +57,20 @@ const SearchBar = (props) => {
                     }
                 </select>
 
-                <button>Submit</button>
+                <button className="homebutton">Submit</button>
             </form>
 
-            <form onSubmit={handleSubmit}>
+            <form  onSubmit={handleSubmit}>
                 <input type="text" id="search" value={search} onChange={handleChange} />
-                <button>Submit</button>
+                <button className="homebutton">Submit</button>
             </form>
 
             {
                 (click) ? results.map((element) => {
                     return (
-                        <div key={element.id} onClick={() => props.history.push(`/crimes/${element.id}`)}>
+
+                        <div className="homecontainer" key={element.id} onClick={() => props.history.push(`/crimes/${element.id}`)}>
+                            
                             <h3>{element.title}</h3>
                             <br />
                         </div>

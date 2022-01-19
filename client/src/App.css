@@ -16,24 +16,18 @@
   pointer-events: none;
 }
 
-/* 
-.App-header {
-
-} */
-
 .App-link {
   color: #61dafb;
 }
 
 nav {
 
-  align-items: right;
   font-family: 'Cabin Sketch', cursive;
-  margin-right: 1.5em;
+  min-height:fit-content;
+  margin-right: .2em;
   text-align: center;
-  padding: 1em  1em 1em 40rem;
-  background-color: #92772dd5; 
-  color: #d4cee2; 
+  max-width:cover;
+  background-color: #92772dd5;  
   opacity: .4;
   border: .2em outset rgb(10, 4, 39);
   border-top-left-radius: 5em 5em; 
@@ -44,7 +38,6 @@ nav {
 }
 
 nav:hover {
-  padding: .8em .8em .8em 50rem;
   opacity: 1; 
    border: .5em groove rgb(26, 26, 3);
 }
@@ -53,7 +46,7 @@ form {
   background: none;   
   color: #222222;
   padding: 1.5rem 2rem;
-  text-align: left;
+  text-align: center;
 }
 
 .logininput{
@@ -84,7 +77,6 @@ form {
         text-align: center;
         font-size: .5em;
         min-width: 8vw;
-        /* box-shadow: 0 0 .5rem .5rem black; */
         transition: all 0.5s;
         cursor: pointer;
         margin: 1.5rem;
@@ -111,8 +103,7 @@ color: black;
   border-radius: 1em;
   padding: 0.5em;
   margin: 1.2rem;
-  max-width: 30vw;
-  min-height: 60vh;
+  max-width: fit-content;
   text-align: center;
   opacity: .7;
   
@@ -162,7 +153,6 @@ height: 20%;
   }
 }
 
-/* I might edit this later - Calvin*/
 .logoutbutton {
   appearance: button;
   background-color: #000;
@@ -213,3 +203,253 @@ height: 20%;
     padding: 12px 50px;
   }
 }
+
+.nav{
+  display:inline;
+  list-style-type:none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  float: left;
+  margin-right: 0.5em;
+  padding: 0.25em 1em;
+  color: #220303; 
+  border-top-left-radius: 2em 2em; 
+  border-top-right-radius: 2em 2em; 
+  border-bottom-left-radius: 2em 2em;
+  border-bottom-right-radius: 2em 2em;
+  transition: all 0.5s;
+}
+
+.nav li:hover{
+  background-color: yellow;
+opacity: 6;
+box-shadow: 0 0 .4rem .4rem white;
+}
+
+img{
+  border:powderblue;
+  border-radius: 50%;
+  max-height: 10vh;
+
+}
+
+.alertimage{
+  border-radius: 50%;
+  max-height: 30vh;
+  background: rgba(198, 18, 18, 0.452);
+  border: .5em solid black;
+  animation-name:alert;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  box-shadow: 0 0 .4rem .4rem rgb(53, 49, 49);
+}
+
+@keyframes alert {
+  0%   {background-color: rgba(230, 0, 0, 0.452);}
+  25%  {background-color: rgba(122, 32, 21, 0.425);}
+  50%  {background-color: rgba(156, 45, 36, 0.452);}
+  100% {background-color: rgba(179, 21, 23, 0.452);}
+
+}
+.navicon{
+  margin: 0 0 0 1rem;
+  transition: all .5s;
+  align-items: right;
+}
+
+.navicon:hover{
+background-color: yellow;
+opacity: 6;
+box-shadow: 0 0 .4rem .4rem white;
+}
+
+a{
+  color:black;
+}
+
+a:hover{
+  color:blue;
+}
+
+.homecontainer{
+  background-color:rgb(55, 78, 141);
+  border: .1em solid #b87c45;
+  box-shadow: .6rem .6rem .6rem .6rem rgb(26, 20, 18);
+  color: rgb(97, 19, 19);
+  font-family: 'Rock Salt', cursive;
+  margin: 1.1em;
+  border-radius: 1.5em;
+  cursor:pointer;
+  transition: all .8s;
+}
+
+.homecontainer:hover{
+  background-color: yellow;
+  opacity: 6;
+  box-shadow:white;
+}
+
+#search{
+  min-height:4vh;
+  min-width: 60vh;
+  margin: .8em;
+  font-family: 'Dancing Script', cursive;
+  color:rgb(245, 245, 245);
+  font-size: larger;
+  font-weight:900;
+  background:rgb(80, 147, 179);
+  border: .4em ridge rgb(209, 29, 29);
+  opacity: .6;
+  padding: .4rem .4rem .4rem .4rem;
+  transition: all .2s;
+}
+
+.homebutton {
+  appearance: none;
+  background-color: #000000;
+  border: 2px solid #1A1A1A;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  margin: .8em;
+  font-family: 'IM Fell English SC', serif;
+  font-size: .8rem;
+  min-height: 5em;
+  outline: none;
+  font-weight: bolder;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  touch-action: manipulation;
+  width: 15%;
+  will-change: transform;
+}
+
+.homebutton:disabled {
+  pointer-events: none;
+}
+
+.homebutton:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.homebutton:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+p{
+font-family: 'Oleo Script', cursive;
+color:rgb(87, 15, 15);
+background-color: rgba(245, 222, 179, 0.185);
+border-top-left-radius: 2em 2em; 
+border-top-right-radius: 2em 2em; 
+border-bottom-left-radius: 2em 2em;
+border-bottom-right-radius: 2em 2em;
+}
+
+.errortext{
+  color:green;
+}
+
+.editbutton{
+  font-family:'Charm', cursive;
+  height: 20%;
+  border-radius:2em;
+  padding:0.4em 1.2em;
+  margin: 0 0.1em 0.1em 0;
+  display: inline-block;
+        background-color: rgb(117, 180, 105);
+        border-radius: .3em;
+        border: .1em double #cccccc;
+        color: #eeeeee;
+        text-align: center;
+        font-size: .7em;
+        padding: .8em;
+        min-width: 14vw;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 1.5rem;
+}
+
+.editbutton:hover{
+
+  background-color: chartreuse;
+}
+
+
+.xbutton {
+  align-items: bottom;
+  height: 20%;
+  border-radius:2em;
+  padding:0.4em 1.2em;
+  margin: 0 0.1em 0.1em 0;
+  display: inline-block;
+        background-color: rgb(94, 8, 8);
+        border-radius: .3em;
+        border: .1em double #cccccc;
+        color: #eeeeee;
+        text-align: center;
+        font-size: .7em;
+        padding: .8em;
+        min-width: 14vw;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 1.5rem;
+}
+
+.xbutton:hover{
+  background-color: red;
+}
+
+#title{
+  padding: 1em;
+  margin: .8em;
+  font-size: large;
+  font-family: 'Cabin Sketch', cursive;
+  font-style: italic;
+  border-top-left-radius: 2em 2em; 
+  border-top-right-radius: 2em 2em; 
+  border-bottom-left-radius: 2em 2em;
+  border-bottom-right-radius: 2em 2em;
+}
+
+#content{
+  padding: .5em;
+  margin:2em;
+  min-height: 15vh;
+  min-width: 70vw;
+}
+
+.our-about{
+  font-family: 'Oleo Script', cursive;
+color: rgb(170, 170, 87);
+font-size: 1.2em;
+background-color: rgba(99, 123, 153, 0.185);
+border-top-left-radius: 2em 2em; 
+border-top-right-radius: 2em 2em; 
+border-bottom-left-radius: 2em 2em;
+border-bottom-right-radius: 2em 2em;
+box-shadow: 0 0 .4rem .4rem rgb(132, 142, 165);
+}
+
+.aboutul{
+  list-style-type: none;
+  display: inline;
+}
+li{
+  float: right;
+  text-align: center;
+  
+}
+
+.abouttext{
+  color: white;
+  text-decoration: none;
+}
+

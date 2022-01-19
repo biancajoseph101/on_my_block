@@ -10,6 +10,7 @@ import SearchBar from './components/SearchBar';
 import CrimeDetails from './components/CrimeDetails';
 import UpdateCrime from './components/UpdateCrime';
 import CrimeTipPost from './pages/CrimeTipPost';
+
 import { CheckSession } from './services/Auth'
 
 function App(props) {
@@ -55,8 +56,10 @@ function App(props) {
           <Route exact path="/signup" component={Signup} />
           <Route path="/login" component={() =><Login {...props} setUser={setUser} toggleAuthenticated={toggleAuthenticated} authenticated={authenticated} user={user} handleLogOut={handleLogOut}/>} />
           <Route exact path="/home" component={Home} />
+          <Route exact path="/about" component={About} />
           <Route exact path="/crimepost" component={(props) => <CrimeTipPost {...props} userId={user.id} authenticated={authenticated} />} />
           <Route path="/" component={(props) => <SearchBar {...props} authenticated={authenticated} username={user.username} /> } />
+
         </Switch>
       </main>
     </div>

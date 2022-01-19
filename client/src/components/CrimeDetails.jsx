@@ -23,20 +23,21 @@ const CrimeDetails = (props) => {
         props.history.push('/')
     }
 
-    const updateButton = (results.userId === props.id) ? <button onClick={() => props.history.push(`/crimes/update/${props.match.params.id}`)} >Update</button> : null;
 
-    const deleteButton = (results.userId === props.id) ? <button onClick={handleDelete}>Delete</button> : null;
+    const updateButton = (results.userId === props.id) ? <div><h3 className="errortext">If you see an error you may edit or delete this report below</h3> <hr/> <button className="editbutton" onClick={() => props.history.push(`/crimes/update/${props.match.params.id}`)} >EDIT</button></div> : null;
+
+    const deleteButton = (results.userId === props.id) ? <button className="xbutton" onClick={handleDelete}>DELETE REPORT</button> : null;
 
     return (
         <div>
             <div>
-                <h1>{results.title}</h1>
-                <p>{results.content}</p>
+                <img className="alertimage" src="/C132EAB6-3B84-44AE-AD95-DE94BABBF8C7.png"/>
+                <h1>There are reports that there was a {results.title} in the area</h1>
+                <hr/>
+                <p>The person or persons who committed the {results.title} allegedly {results.content}. Please be safe out there.</p>
             </div>
             <br />
-            {/* <button onClick={() => props.history.push(`/crimes/update/${props.match.params.id}`)} >Update</button> */}
             {updateButton}
-            {/* <button onClick={handleDelete}>Delete</button> */}
             {deleteButton}
             <br /><br />
             <CreateComment {...props} neighborhoodId={results.neighborhoodId} id={props.id} authenticated={props.authenticated} />

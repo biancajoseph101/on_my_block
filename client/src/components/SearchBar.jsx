@@ -46,9 +46,9 @@ const SearchBar = (props) => {
                     {
                         zips.map((element) => {
                             return (
-                                <>
+                                <React.Fragment key={element.id}>
                                     <option value={element.zipcode}>{element.zipcode}</option>
-                                </>
+                                </React.Fragment>
                             )
                         })
                     }

@@ -20,9 +20,6 @@ function CrimeTipPost(props) {
       userId: props.userId,
     }
     
-    const postResponse = await axios.post("http://localhost:3001/api/tips/", newCrime)
-    setClick(true)
-
     const postResponse = await axios.post(
       'http://localhost:3001/api/tips/',
       newCrime

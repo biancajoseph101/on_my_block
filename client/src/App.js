@@ -61,7 +61,7 @@ function App(props) {
               />
             )}
           />
-          <Route exact path="/recommendations" component={Recommendations} />
+          <Route exact path="/recommendations" component={()=><Recommendations authenticated={authenticated}/>} />
           <Route exact path="/signup" component={Signup} />
           <Route
             path="/login"

@@ -11,6 +11,9 @@
   text-transform: uppercase;
   font-family: Andale Mono;
 }
+.App-background {
+  opacity: 0.5;
+}
 
 .App-logo {
   height: 40vmin;

@@ -3,7 +3,7 @@ import axios from "axios";
 
 const SearchBar = (props) => {
 
-
+    // search and dropdown option data
     const [search, setSearch] = useState('')
     const [click, setClick] = useState(false)
     const [results, setResults] = useState([])
@@ -20,6 +20,17 @@ const SearchBar = (props) => {
         setSearch('')
     }
 
+    // Neighborhood Data
+    const [zips, setZips] = useState([])
+
+    const getNeighborhoods = async (e) => {
+        const res = await axios.get(`http://localhost:3001/api/neighborhoods/`)
+        setZips(res.data.neighborhoods)
+    }
+
+    useEffect(() => {
+        getNeighborhoods()
+    }, [])
 
     return (
         <div>
@@ -32,12 +43,15 @@ const SearchBar = (props) => {
                 <label htmlFor="search">Zipcode: </label>
                 <select name="search" id="search" onChange={handleChange}>
                     <option value="">Choose...</option>
-                    <option value='75056'>75056</option>
-                    <option value="11422">11422</option>
-                    <option value="10028">10028</option>
-                    <option value="11371">11371</option>
-                    <option value="10528">10528</option>
-                    <option value="11101">11101</option>
+                    {
+                        zips.map((element) => {
+                            return (
+                                <>
+                                    <option value={element.zipcode}>{element.zipcode}</option>
+                                </>
+                            )
+                        })
+                    }
                 </select>
 
                 <button>Submit</button>

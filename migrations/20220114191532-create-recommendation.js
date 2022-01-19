@@ -14,6 +14,9 @@ module.exports = {
       content: {
         type: Sequelize.STRING
       },
+      likes: {
+        type: Sequelize.INTEGER
+      },
       neighborhoodId: {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',

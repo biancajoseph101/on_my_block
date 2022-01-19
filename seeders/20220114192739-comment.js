@@ -6,17 +6,17 @@ module.exports = {
     const comments = [
       {
         content: 'I totally agree.',
-        neighborhoodId: 5,
-        userId: 8,
-        crimeId: 1,
+        neighborhoodId: 7,
+        userId: 4,
+        crimeId: 15,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         content: 'This is so true.',
-        neighborhoodId: 5,
-        userId: 7,
-        crimeId: 2,
+        neighborhoodId: 41,
+        userId: 4,
+        crimeId: 16,
         createdAt: new Date(),
         updatedAt: new Date()
       }
@@ -45,3 +45,4 @@ module.exports = {
      */
   }
 };
+

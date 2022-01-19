@@ -1,21 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import Likes from '../components/Likes';
 
 function Recommendations(props) {
   const [search, setSearch] = useState('');
   const [click, setClick] = useState(false);
   const [results, setResults] = useState([]);
-  const [likes, setLikes] = useState({
-    likes: 0
-  });
-
-  const handleLike = async (e) => {
-    e.preventDefault();
-    await axios.put(
-      `http://localhost:3001/api/recommendations/search?zipcode=${search}`,
-      { likes: setLikes(likes + 1) }
-    );
-  };
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -39,22 +29,23 @@ function Recommendations(props) {
           <option value="">Choose...</option>
           <option value="75019"> 75056 </option>
           <option value="10528"> 10528 </option>
+          <option value="60629"> 60629 </option>
+          <option value="83702"> 83702 </option>
         </select>
         <button>Submit</button>
       </form>
       {click
         ? results.map((element) => {
             return (
-              <div key={element.id}>
+              <div>
                 <h3>Neighborhood: {element.Neighborhood.name}</h3>
                 <h3>Zipcode: {element.Neighborhood.zipcode}</h3>
-                <h3>Category: {element.category}</h3>
-                <p>{element.content}</p>
-                <br />
-                <button onClick={handleLike} className="likes">
-                  like
-                </button>
-                <h1>{likes}</h1>
+                <div key={element.id}>
+                  <h3>Category: {element.category}</h3>
+                  <p>{element.content}</p>
+                  <br />
+                  <Likes recommendation_id={element.id} />
+                </div>
               </div>
             );
           })
@@ -64,3 +55,4 @@ function Recommendations(props) {
 }
 
 export default Recommendations;
+

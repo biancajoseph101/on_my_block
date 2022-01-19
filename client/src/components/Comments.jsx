@@ -25,7 +25,6 @@ const Comments = (props) => {
                                 {
                                     element.userId === props.id && (
                                         <>
-                                            <button>Update</button>
                                             <button onClick={async () => {
                                                 await axios.delete(`http://localhost:3001/api/comments/${element.id}`)
                                                 window.location.reload()

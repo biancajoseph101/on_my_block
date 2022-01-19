@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       category: DataTypes.STRING,
       content: DataTypes.STRING,
+      likes: DataTypes.INTEGER,
       neighborhoodId: {
         type: DataTypes.INTEGER,
         references: {

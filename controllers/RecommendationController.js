@@ -11,7 +11,15 @@ const CreateRecommendation = async (req, res) => {
     return res.status(500).json({ error: error.message });
   }
 };
-
+const getRecommendationById = async (req, res) => {
+  try {
+    let recommendationId = parseInt(req.params.recommendation_id);
+    const recommendation = await Recommendation.findByPk(recommendationId);
+    return res.status(200).json({ recommendation });
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
+};
 const GetRecommendationsByNeighborhood = async (req, res) => {
   try {
     const neighborhoodRecommendations = await Recommendation.findAll({
@@ -60,5 +68,6 @@ module.exports = {
   DeleteRecommendation,
   UpdateRecommendation,
   GetAllRecommendations,
-  GetRecommendationsByNeighborhood
+  GetRecommendationsByNeighborhood,
+  getRecommendationById
 };

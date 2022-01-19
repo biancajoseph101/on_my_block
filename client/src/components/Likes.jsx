@@ -9,21 +9,27 @@ function Likes(props) {
   const handleLike = async (e) => {
     e.preventDefault()
     console.log(props)
-    // setLikes(likes + 1)
+    const newlikes = likes+1
+    setLikes(newlikes)
+    console.log(likes)
+    console.log(newlikes)
+    console.log(click)
 
     if (click === false) {
       setClick(true)
-      setLikes(likes+1)
-      await axios.put(
+      
+     const recommendations = await axios.put(
         `http://localhost:3001/api/recommendations/${props.recommendation_id}`,
         {
-          likes:likes,
+          likes: newlikes
         }
       )
+    
     } else if (click === true) {
       
       setClick(false)
       setLikes(likes-1)
+      console.log(likes)
       await axios.put(
         `http://localhost:3001/api/recommendations/${props.recommendation_id}`,
         {

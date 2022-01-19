@@ -13,6 +13,7 @@ function CrimeTipPost() {
       neighborhoodId: response.data[0].id,
       userId: "1",
     }
+    
     const postResponse = await axios.post("http://localhost:3001/api/tips/", newCrime)
     console.log(postResponse)
   }

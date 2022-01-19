@@ -3,9 +3,10 @@ import React from 'react';
 const About = () => {
   return (
     <div className="about">
-      <h3>Welcome to On My Block.</h3>
-      <div className="our-about">
-        <h5>
+      <h1>Welcome to On My Block.</h1>
+      <hr />
+      <div>
+        <h5 className="our-about">
           The basic idea is for neighbors to watch out for each other. By
           looking after a neighbors property as if it were your own, you will
           more likely contact the police if you observe something suspicious.
@@ -16,23 +17,58 @@ const About = () => {
           alert to suspicious people, vehicles, and/or sounds that could
           indicate criminal activity.
         </h5>
-        <h3>This theme park was created by Bianca, Grant, Gihae and Abidur</h3>
+        <hr />
+        <h1>
+          This app was made by was created by Bianca, Abidur, Calvin and Nashid
+        </h1>
         <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" />
         <div className="links">
-          <h6>
-            <a href="https://www.linkedin.com/in/biancaclairejoseph/">Bianca</a>
-          </h6>
-          <h6>
-            <a href="https://www.linkedin.com/in/nashid-alam-02602147/">
-              Nashid
-            </a>
-          </h6>
-          <h6>
-            <a href="https://www.linkedin.com/in/abidurrahmandipta">Abidur</a>
-          </h6>
-          <h6>
-            <a href="https://www.linkedin.com/in/calvin-menyfield/">Calvin</a>
-          </h6>
+          <ul className="aboutul">
+            <li>
+              <h2>
+                <img src="https://avatars.githubusercontent.com/u/93398631?v=4" />
+                <a
+                  className="abouttext"
+                  href="https://www.linkedin.com/in/biancaclairejoseph/"
+                >
+                  Bianca
+                </a>
+              </h2>
+            </li>
+            <li>
+              <h2>
+                <img src="https://avatars.githubusercontent.com/u/87242570?v=4" />
+                <a
+                  className="abouttext"
+                  href="https://www.linkedin.com/in/nashid-alam-02602147/"
+                >
+                  Nashid
+                </a>
+              </h2>
+            </li>
+            <li>
+              <h2>
+                <img src="https://avatars.githubusercontent.com/u/67972965?v=4" />
+                <a
+                  className="abouttext"
+                  href="https://www.linkedin.com/in/abidurrahmandipta"
+                >
+                  Abidur
+                </a>
+              </h2>
+            </li>
+            <li>
+              <h2>
+                <img src="https://avatars.githubusercontent.com/u/58853852?v=4" />
+                <a
+                  className="abouttext"
+                  href="https://www.linkedin.com/in/calvin-menyfield/"
+                >
+                  Calvin
+                </a>
+              </h2>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

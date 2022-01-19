@@ -9,26 +9,33 @@ const CrimeDetails = (props) => {
     const getResults = async () => {
         const res = await axios.get(`http://localhost:3001/api/tips/${props.match.params.id}`)
         setResults(res.data.tips)
+        // console.log(user)
     }
 
     useEffect(() => {
         getResults()
-        console.log(results)
+        // console.log(results)
     }, [])
 
     const handleDelete = () => {
         axios.delete(`http://localhost:3001/api/tips/${props.match.params.id}`)
     }
 
+    const updateButton = (results.userId === props.id) ? <div><h3 className="errortext">If you see an error you may edit or delete this report below</h3> <hr/> <button className="editbutton" onClick={() => props.history.push(`/crimes/update/${props.match.params.id}`)} >EDIT</button></div> : null;
+
+    const deleteButton = (results.userId === props.id) ? <button className="xbutton" onClick={handleDelete}>DELETE REPORT</button> : null;
+
     return (
         <div>
             <div>
-                <h1>{results.title}</h1>
-                <p>{results.content}</p>
+                <img className="alertimage" src="/C132EAB6-3B84-44AE-AD95-DE94BABBF8C7.png"/>
+                <h1>There are reports that there was a {results.title} in the area</h1>
+                <hr/>
+                <p>The person or persons who committed the {results.title} allegedly {results.content}. Please be safe out there.</p>
             </div>
             <br />
-            <button onClick={() => props.history.push(`/crimes/update/${props.match.params.id}`)} >Update</button>
-            <button onClick={handleDelete}>Delete</button>
+            {updateButton}
+            {deleteButton}
         </div>
     )
 }

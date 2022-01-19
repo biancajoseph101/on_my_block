@@ -1,7 +1,7 @@
-import React from "react"
-import axios from "axios"
+import React from 'react';
+import axios from 'axios';
 
-function CrimeTipPost() {
+function CrimeTipPost(props) {
   async function createCrimeTip(e) {
     e.preventDefault()
     const zipcode = e.target.zipcode.value
@@ -53,7 +53,7 @@ function CrimeTipPost() {
         <button type="submit">Submit</button>
       </form>
     </div>
-  )
+  );
 }
 
-export default CrimeTipPost
+export default CrimeTipPost;

@@ -15,17 +15,19 @@ const SearchBar = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const res = await axios.get(`http://localhost:3001/api/tips/search?zipcode=${search}`)
+        console.log(res.data.item)
         setResults(res.data.item)
         setClick(true)
         setSearch('')
+        
     }
 
 
     return (
         <div>
-            <h1>Hi</h1>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="search">Zipcode: </label>
+            <h1>THESE ARE REPORTS OF CRIMES COMMITTED IN THE AREA</h1>
+            <form className="homeform" onSubmit={handleSubmit}>
+                <h1>ENTER A ZIPCODE: </h1>
                 {/* <input type="text" id="search" value={search} onChange={handleChange} /> */}
                 <select name="search" id="search" onChange={handleChange}>
                     <option value="">Choose...</option>
@@ -37,18 +39,20 @@ const SearchBar = (props) => {
                     <option value="11101">11101</option>
                 </select>
 
-                <button>Submit</button>
+                <button className="homebutton">Submit</button>
             </form>
 
-            <form onSubmit={handleSubmit}>
+            <form  onSubmit={handleSubmit}>
                 <input type="text" id="search" value={search} onChange={handleChange} />
-                <button>Submit</button>
+                <button className="homebutton">Submit</button>
             </form>
 
             {
                 (click) ? results.map((element) => {
                     return (
-                        <div key={element.id} onClick={() => props.history.push(`/crimes/${element.id}`)}>
+
+                        <div className="homecontainer" key={element.id} onClick={() => props.history.push(`/crimes/${element.id}`)}>
+                            
                             <h3>{element.title}</h3>
                             <br />
                         </div>

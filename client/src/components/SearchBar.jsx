@@ -23,6 +23,11 @@ const SearchBar = (props) => {
 
     return (
         <div>
+
+            {
+                (props.authenticated) ? <h1>Welcome back {props.username}!</h1> : null
+            }
+            <h1>Whats the Talk of the Town?</h1>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="search">Zipcode: </label>
                 <select name="search" id="search" onChange={handleChange}>

@@ -29,7 +29,8 @@ const UpdateCrime = (props) => {
             neighborhoodId: newPost.neighborhoodId,
             userId: newPost.userId
         })
-
+        props.history.push(`/crimes/${props.match.params.id}`)
+        window.location.reload()
     }
 
 

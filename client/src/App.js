@@ -22,6 +22,7 @@ function App(props) {
     setUser(null);
     toggleAuthenticated(false);
     localStorage.clear();
+    window.location.reload()
   };
 
   const checkToken = async () => {
@@ -44,18 +45,18 @@ function App(props) {
   return (
     <div className="App">
       <header>
-        <NavBar />
+        <NavBar authenticated={authenticated} handleLogOut={handleLogOut} />
       </header>
       <main>
         <Switch>
           <Route exact path="/crimes/update/:id" component={UpdateCrime} />
-          <Route exact path="/crimes/:id" component={(props) => <CrimeDetails {...props}  id={user.id} />} />
+          <Route exact path="/crimes/:id" component={(props) => <CrimeDetails {...props}  id={user.id} authenticated={authenticated}/>} />
           <Route exact path="/recommendations" component={Recommendations} />
           <Route exact path="/signup" component={Signup} />
           <Route path="/login" component={() =><Login {...props} setUser={setUser} toggleAuthenticated={toggleAuthenticated} authenticated={authenticated} user={user} handleLogOut={handleLogOut}/>} />
           <Route exact path="/home" component={Home} />
-          <Route exact path="/crimepost" component={() => <CrimeTipPost {...props} userId={user.id} />} />
-          <Route path="/" component={SearchBar} />
+          <Route exact path="/crimepost" component={(props) => <CrimeTipPost {...props} userId={user.id} authenticated={authenticated} />} />
+          <Route path="/" component={(props) => <SearchBar {...props} authenticated={authenticated} username={user.username} /> } />
         </Switch>
       </main>
     </div>

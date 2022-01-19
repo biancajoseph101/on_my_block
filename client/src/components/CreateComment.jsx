@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { Redirect, Link } from "react-router-dom";
 
 const CreateComment = (props) => {
 
@@ -23,11 +24,16 @@ const CreateComment = (props) => {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="content">Content: </label>
-                <textarea id="content" type='text' onChange={handleChange} />
-                <button>Submit</button>
-            </form>
+            {
+                (props.authenticated) ?
+                    (
+                        <form onSubmit={handleSubmit}>
+                            <label htmlFor="content">Content: </label>
+                            <textarea id="content" type='text' onChange={handleChange} />
+                            <button>Submit</button>
+                        </form>
+                    ) : <h2>Want to share your opinion?<Link to='/login'>Login</Link></h2>
+            }
         </div>
     )
 }

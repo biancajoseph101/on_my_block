@@ -23,10 +23,15 @@ const Comments = (props) => {
                             <div key={element.id} style={{ display: 'flex', justifyContent: 'center' }}>
                                 <p>{element.content}</p>
                                 {
-                                    element.userId === props.id && <button onClick={async () => {
-                                        await axios.delete(`http://localhost:3001/api/comments/${element.id}`)
-                                        window.location.reload()
-                                    }}>Delete</button>
+                                    element.userId === props.id && (
+                                        <>
+                                            <button>Update</button>
+                                            <button onClick={async () => {
+                                                await axios.delete(`http://localhost:3001/api/comments/${element.id}`)
+                                                window.location.reload()
+                                            }}>Delete</button>
+                                        </>
+                                    )
                                 }
                             </div>
                         )

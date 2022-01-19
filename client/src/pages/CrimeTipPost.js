@@ -1,7 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import axios from "axios"
+import { Link } from "react-router-dom"
 
 function CrimeTipPost(props) {
+
+  const [click, setClick] = useState(false)
+
   async function createCrimeTip(e) {
     e.preventDefault()
     const zipcode = e.target.zipcode.value
@@ -13,11 +17,20 @@ function CrimeTipPost(props) {
       userId: props.userId,
     }
     const postResponse = await axios.post("http://localhost:3001/api/tips/", newCrime)
+    setClick(true)
   }
 
   return (
     <div>
-      <form onSubmit={createCrimeTip}>
+
+      {
+        (click)? <h1>Successfully posted the crime you witnessed</h1> : null
+      }
+    
+      {
+        (props.authenticated)? 
+          (
+            <form onSubmit={createCrimeTip}>
         <div>
           <label>Crime</label>
           <input
@@ -49,6 +62,9 @@ function CrimeTipPost(props) {
         </div>
         <button type="submit">Submit</button>
       </form>
+          ): <h1>Want to post a crime you just witnessed? <Link to='/login'>Login</Link></h1>
+      }
+
     </div>
   )
 }

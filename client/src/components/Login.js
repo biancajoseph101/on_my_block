@@ -1,3 +1,4 @@
+import { Link, Redirect } from 'react-router-dom'
 import React, { useState, useEffect } from 'react';
 import { LoginUser } from '../services/Auth';
 import { CheckSession } from '../services/Auth';
@@ -19,13 +20,14 @@ export default function Login(props) {
     // setFormValues({ username: '', password: '' });
     props.setUser(payload);
     props.toggleAuthenticated(true);
+    // return <Redirect to="/signup"  />
   };
 
   return (
     <div>
-      <h1>Whats the Talk of the Town?</h1>
+      
       <hr />
-      {props.authenticated === true ? <h1>Welcome Back, {props.user.username}</h1> : null}
+      {props.authenticated === true ? <Redirect to='/' /> : null}
       <form onSubmit={handleSubmit}>
         <input
           className="logininput"
@@ -48,9 +50,11 @@ export default function Login(props) {
         <button className="loginbutton">Login</button>
       </form>
 
-      <button onClick={props.handleLogOut} className="logoutbutton">
+      <h1>Don't have an account?<Link to='/signup'>Sign Up</Link></h1>
+
+      {/* <button onClick={props.handleLogOut} className="logoutbutton">
         LogOut
-      </button>
+      </button> */}
     </div>
   );
 }

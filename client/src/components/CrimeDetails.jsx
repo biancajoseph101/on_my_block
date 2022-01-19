@@ -20,6 +20,7 @@ const CrimeDetails = (props) => {
 
     const handleDelete = () => {
         axios.delete(`http://localhost:3001/api/tips/${props.match.params.id}`)
+        props.history.push('/')
     }
 
     const updateButton = (results.userId === props.id) ? <button onClick={() => props.history.push(`/crimes/update/${props.match.params.id}`)} >Update</button> : null;
@@ -38,7 +39,7 @@ const CrimeDetails = (props) => {
             {/* <button onClick={handleDelete}>Delete</button> */}
             {deleteButton}
             <br /><br />
-            <CreateComment {...props} neighborhoodId={results.neighborhoodId} id={props.id} />
+            <CreateComment {...props} neighborhoodId={results.neighborhoodId} id={props.id} authenticated={props.authenticated} />
             <br />
 
             <Comments {...props} id={props.id} />

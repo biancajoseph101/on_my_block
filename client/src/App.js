@@ -10,11 +10,11 @@ import SearchBar from './components/SearchBar';
 import CrimeDetails from './components/CrimeDetails';
 import UpdateCrime from './components/UpdateCrime';
 import CrimeTipPost from './pages/CrimeTipPost';
+import About from './pages/About';
 
-import { CheckSession } from './services/Auth'
+import { CheckSession } from './services/Auth';
 
 function App(props) {
-
   const [authenticated, toggleAuthenticated] = useState(false);
   const [user, setUser] = useState('');
 
@@ -23,7 +23,7 @@ function App(props) {
     setUser(null);
     toggleAuthenticated(false);
     localStorage.clear();
-    window.location.reload()
+    window.location.reload();
   };
 
   const checkToken = async () => {
@@ -33,7 +33,6 @@ function App(props) {
     toggleAuthenticated(true);
   };
 
-
   useEffect(() => {
     const token = localStorage.getItem('token');
     // Check if token exists before requesting to validate the token
@@ -41,7 +40,6 @@ function App(props) {
       checkToken();
     }
   }, []);
-
 
   return (
     <div className="App">
@@ -51,15 +49,55 @@ function App(props) {
       <main>
         <Switch>
           <Route exact path="/crimes/update/:id" component={UpdateCrime} />
-          <Route exact path="/crimes/:id" component={(props) => <CrimeDetails {...props}  id={user.id} authenticated={authenticated}/>} />
+          <Route
+            exact
+            path="/crimes/:id"
+            component={(props) => (
+              <CrimeDetails
+                {...props}
+                id={user.id}
+                authenticated={authenticated}
+              />
+            )}
+          />
           <Route exact path="/recommendations" component={Recommendations} />
           <Route exact path="/signup" component={Signup} />
-          <Route path="/login" component={() =><Login {...props} setUser={setUser} toggleAuthenticated={toggleAuthenticated} authenticated={authenticated} user={user} handleLogOut={handleLogOut}/>} />
+          <Route
+            path="/login"
+            component={() => (
+              <Login
+                {...props}
+                setUser={setUser}
+                toggleAuthenticated={toggleAuthenticated}
+                authenticated={authenticated}
+                user={user}
+                handleLogOut={handleLogOut}
+              />
+            )}
+          />
           <Route exact path="/home" component={Home} />
           <Route exact path="/about" component={About} />
-          <Route exact path="/crimepost" component={(props) => <CrimeTipPost {...props} userId={user.id} authenticated={authenticated} />} />
-          <Route path="/" component={(props) => <SearchBar {...props} authenticated={authenticated} username={user.username} /> } />
-
+          <Route
+            exact
+            path="/crimepost"
+            component={(props) => (
+              <CrimeTipPost
+                {...props}
+                userId={user.id}
+                authenticated={authenticated}
+              />
+            )}
+          />
+          <Route
+            path="/"
+            component={(props) => (
+              <SearchBar
+                {...props}
+                authenticated={authenticated}
+                username={user.username}
+              />
+            )}
+          />
         </Switch>
       </main>
     </div>

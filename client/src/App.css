@@ -285,15 +285,17 @@ a {
 }
 
 a:hover {
-  color: rgb(141, 204, 219);
+  color: rgb(47, 68, 73);
 }
 
 .homecontainer {
-  background-color: rgb(55, 78, 141);
-  border: 0.1em solid #b87c45;
+  background-color: rgb(107, 130, 190);
+  border: 0.1em solid #ffffff;
   box-shadow: 0.6rem 0.6rem 0.6rem 0.6rem rgb(26, 20, 18);
   color: rgb(255, 255, 255);
-  font-family: 'Rock Salt', cursive;
+  display: flex;
+  justify-content: center;
+  font-family: 'Acme', sans-serif;
   margin: 1.1em;
   border-radius: 1.5em;
   cursor: pointer;
@@ -301,7 +303,7 @@ a:hover {
 }
 
 .homecontainer:hover {
-  background-color: yellow;
+  background-color: rgb(73, 5, 5);
   opacity: 6;
   box-shadow: white;
 }
@@ -382,17 +384,19 @@ p {
 }
 
 .errortext {
-  color: green;
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.356);
+  font-size: medium;
 }
 
 .editbutton {
-  font-family: 'Charm', cursive;
+  font-family: Andale Mono;
   height: 20%;
   border-radius: 2em;
   padding: 0.4em 1.2em;
   margin: 0 0.1em 0.1em 0;
   display: inline-block;
-  background-color: rgb(117, 180, 105);
+  background-color: rgb(81, 150, 177);
   border-radius: 0.3em;
   border: 0.1em double #cccccc;
   color: #eeeeee;

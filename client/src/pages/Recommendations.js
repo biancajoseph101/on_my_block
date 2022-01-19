@@ -39,17 +39,22 @@ function Recommendations(props) {
         <label htmlFor="recommendations"> </label>
         <select name="rec" id="rec" onChange={handleChange}>
           <option value="">Choose...</option>
-          <option value="75019"> 75056 </option>
-          <option value="10528"> 10528 </option>
-          <option value="60629"> 60629 </option>
-          <option value="83702"> 83702 </option>
+          {
+            zips.map((element) => {
+              return (
+                <React.Fragment key={element.id}>
+                  <option value={element.zipcode}>{element.zipcode}</option>
+                </React.Fragment>
+              )
+            })
+          }
         </select>
         <button>Submit</button>
       </form>
       {click
         ? results.map((element) => {
             return (
-              <div>
+              <div key={element.id}>
                 <h3>Neighborhood: {element.Neighborhood.name}</h3>
                 <h3>Zipcode: {element.Neighborhood.zipcode}</h3>
                 <div key={element.id}>

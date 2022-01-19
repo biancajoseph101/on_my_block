@@ -14,7 +14,7 @@ function CrimeTipPost(props) {
     const newCrime = {
       title: e.target.title.value,
       content: e.target.content.value,
-      neighborhoodId: response.data.id,
+      neighborhoodId: response.data[0].id,
       userId: props.userId,
     }
     

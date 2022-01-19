@@ -3,27 +3,29 @@ import axios from 'axios'
 
 
 function Likes(props) {
-    const [likes, setLikes] = useState(0);
+  // Getting the recommendations info
+  const [likes, setLikes] = useState(0);
 
-    const handleLike = async (e) => {
-        e.preventDefault();
-        console.log(props)
-        // setLikes(likes + 1)
-        await axios.put(
-          `http://localhost:3001/api/recommendations/${props.recommendation_id}`,
-          {
-            likes: setLikes(likes + 1)
-          }
-        );
-      };
-  
-      return (
+  const handleLike = async (e) => {
+    e.preventDefault();
+    setLikes(likes + 1)
+    console.log(props)
+    // setLikes(likes + 1)
+    await axios.put(
+      `http://localhost:3001/api/recommendations/${props.recommendation_id}`,
+      {
+        likes: likes
+      }
+    );
+  };
+
+  return (
     <div>
-    <button onClick={handleLike}>like</button>
-    
-    {likes}
+      <button onClick={handleLike}>like</button>
+
+      {likes}
     </div>
-      )
+  )
 
 }
 

@@ -11,6 +11,7 @@ import CrimeDetails from './components/CrimeDetails';
 import UpdateCrime from './components/UpdateCrime';
 import CrimeTipPost from './pages/CrimeTipPost';
 import { CheckSession } from './services/Auth';
+import About from './pages/About';
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false);
@@ -55,6 +56,7 @@ function App() {
               />
             )}
           />
+          <Route exact path="/about" component={About} />
           <Route exact path="/recommendations" component={Recommendations} />
           <Route exact path="/signup" component={Signup} />
           <Route

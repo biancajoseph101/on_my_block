@@ -36,13 +36,13 @@ const UpdateCrime = (props) => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="title">Title</label>
+                <h1>Crime Accused</h1>
                 <input id='title' type='text' value={newPost.title} onChange={handleChange} />
 
-                <label htmlFor="content">Content</label>
-                <textarea id="content" value={newPost.content} onChange={handleChange} />
-
-                <button>Submit</button>
+                <h1>Crime Details</h1>
+                <textarea id="content" value={newPost.content} onChange={handleChange}  />
+<hr/>
+                <button className="editbutton">Submit</button>
             </form>
         </div>
     )

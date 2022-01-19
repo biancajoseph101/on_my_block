@@ -33,7 +33,6 @@ const getNeighborhoodByZipcode = async (req, res) => {
   }
 };
 
-
 const getorcreateNeighborhoodByZipcode = async (req, res) => {
   try {
     const neighborhood = await Neighborhood.findOrCreate({

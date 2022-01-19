@@ -19,18 +19,35 @@ function Recommendations(props) {
     setResults(response.data.neighborhoodRecommendations);
     setClick(true);
   };
+  // Neighborhood Data
+    const [zips, setZips] = useState([])
+
+    const getNeighborhoods = async (e) => {
+        const res = await axios.get(`http://localhost:3001/api/neighborhoods/`)
+        setZips(res.data.neighborhoods)
+    }
+
+    useEffect(() => {
+        getNeighborhoods()
+    }, [])
 
   return (
+
     <div className="recListing">
       <h1>Recommendations</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="recommendations"> </label>
         <select name="rec" id="rec" onChange={handleChange}>
           <option value="">Choose...</option>
-          <option value="75019"> 75056 </option>
-          <option value="10528"> 10528 </option>
-          <option value="60629"> 60629 </option>
-          <option value="83702"> 83702 </option>
+          {
+                        zips.map((element) => {
+                            return (
+                                <React.Fragment key={element.id}>
+                                    <option value={element.zipcode}>{element.zipcode}</option>
+                                </React.Fragment>
+                            )
+                        })
+                    }
         </select>
         <button>Submit</button>
       </form>

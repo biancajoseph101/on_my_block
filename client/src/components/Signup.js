@@ -10,8 +10,7 @@ const newForm = {
 };
 
 export default function Signup() {
-
-  const [signup, setSignup] = useState(false)
+  const [signup, setSignup] = useState(false);
 
   const [newUser, setUser] = useState({
     username: '',
@@ -32,16 +31,16 @@ export default function Signup() {
       password: newUser.password
     });
     setUser(newForm);
-    setSignup(true)
+    setSignup(true);
   };
   return (
     <div>
-      <h1>Catchy Thing To Say Here</h1>
-      {
-        (signup)?
-          <h1>Created account succesfully!!!<Link to='/login'>Login</Link></h1>
-          : null
-      }
+      <h1>Get caught up with the latest neighborhood news</h1>
+      {signup ? (
+        <h1>
+          Created account succesfully!!!<Link to="/login">Login</Link>
+        </h1>
+      ) : null}
       <div className="sign">
         <form onSubmit={handleSubmit}>
           <input
@@ -49,7 +48,7 @@ export default function Signup() {
             onChange={handleChange}
             id="username"
             type="text"
-            placeholder="Username here"
+            placeholder="enter username"
             value={newUser.username}
             size="40"
             required
@@ -59,7 +58,7 @@ export default function Signup() {
             onChange={handleChange}
             id="email"
             type="text"
-            placeholder="Email goes here"
+            placeholder="enter email"
             value={newUser.email}
             size="40"
             required
@@ -69,7 +68,7 @@ export default function Signup() {
             onChange={handleChange}
             id="password"
             type="password"
-            placeholder="Password here"
+            placeholder="enter password"
             value={newUser.password}
             size="40"
             required
@@ -79,7 +78,7 @@ export default function Signup() {
             onChange={handleChange}
             type="password"
             id="confirmPassword"
-            placeholder="Confirm password"
+            placeholder="confirm password"
             value={newUser.confirmPassword}
             size="40"
             required

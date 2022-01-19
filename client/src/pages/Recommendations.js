@@ -61,7 +61,7 @@ function Recommendations(props) {
                   <h3>Category: {element.category}</h3>
                   <p>{element.content}</p>
                   <br />
-                  <Likes recommendation_id={element.id} />
+                  <Likes recommendation_id={element.id} authenticated={props.authenticated}/>
                 </div>
               </div>
             );

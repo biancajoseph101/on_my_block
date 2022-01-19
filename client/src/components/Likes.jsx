@@ -19,8 +19,17 @@ function Likes(props) {
   
       return (
     <div>
-    <button onClick={handleLike}>like</button>
+   
+    {
+      (props.authenticated)?
+        (
+          <>
+             <button onClick={handleLike}>like</button>
     
+              
+          </>
+        ):null
+    }
     {likes}
     </div>
       )

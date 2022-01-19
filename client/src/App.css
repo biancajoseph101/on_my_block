@@ -51,6 +51,7 @@ form {
 .logininput {
   height: 4vh;
   margin: 1.2em;
+  font-family: Andale Mono;
   background: white;
   border: 0.4em outset rgb(219, 205, 205);
   padding: 0.4rem 0.4rem 0.4rem 0.4rem;
@@ -275,7 +276,7 @@ img {
 }
 
 a {
-  color: black;
+  color: rgb(117, 214, 122);
 }
 
 a:hover {
@@ -462,6 +463,8 @@ p {
 .aboutul {
   list-style-type: none;
   display: inline;
+  display: flex;
+  justify-content: center;
 }
 li {
   float: right;

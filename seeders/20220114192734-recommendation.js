@@ -6,19 +6,17 @@ module.exports = {
     const recommendations = [
       {
         category: 'Restaurants',
-        content:
-          'Black Walnut is an amazing local diner with a plethora of options.',
-        neighborhoodId: 27,
-        userId: 10,
+        content:'Black Walnut is an amazing local diner with a plethora of options.',
+        neighborhoodId: 6,
+        userId: 2,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
         category: 'Healthcare',
-        content:
-          'Dr. Jones at Mercy Hospital is incredible. He has been helping me for years.',
-        neighborhoodId: 41,
-        userId: 11,
+        content:'Dr. Jones at Mercy Hospital is incredible. He has been helping me for years.',
+        neighborhoodId: 7,
+        userId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       }

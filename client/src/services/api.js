@@ -1,7 +1,7 @@
 import Axios from 'axios';
-import { BaseURL } from '../globals';
+import { AuthURL } from '../globals';
 
-const Client = Axios.create({ baseURL: BaseURL });
+const Client = Axios.create({ baseURL: AuthURL });
 // Intercepts every request axios makes
 Client.interceptors.request.use(
   (config) => {

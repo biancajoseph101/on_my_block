@@ -7,7 +7,7 @@ module.exports = {
         username: 'biancajoseph',
         passwordDigest: 'crazypassword',
         email: 'bianca@gmail.com',
-        neighborhoodId: 2,
+        neighborhoodId: 1,
         createdAt: new Date(),
         updatedAt: new Date()
       },

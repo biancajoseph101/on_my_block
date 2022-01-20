@@ -20,16 +20,16 @@ function Recommendations(props) {
     setClick(true);
   };
   // Neighborhood Data
-    const [zips, setZips] = useState([])
+  const [zips, setZips] = useState([])
 
-    const getNeighborhoods = async (e) => {
-        const res = await axios.get(`http://localhost:3001/api/neighborhoods/`)
-        setZips(res.data.neighborhoods)
-    }
+  const getNeighborhoods = async (e) => {
+      const res = await axios.get(`http://localhost:3001/api/neighborhoods/`)
+      setZips(res.data.neighborhoods)
+  }
 
-    useEffect(() => {
-        getNeighborhoods()
-    }, [])
+  useEffect(() => {
+      getNeighborhoods()
+  }, [])
 
   return (
     
@@ -48,6 +48,7 @@ function Recommendations(props) {
                             )
                         })
                     }
+
         </select>
         <button>Submit</button>
       </form>
@@ -55,7 +56,6 @@ function Recommendations(props) {
         ? results.map((element) => {
             return (
               <div>
-                
                   <div className='elementContent'>
                 <h3>Neighborhood: {element.Neighborhood.name}</h3>
                 <h3>Zipcode: {element.Neighborhood.zipcode}</h3>

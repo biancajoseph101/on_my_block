@@ -32,7 +32,7 @@ function Recommendations(props) {
     }, [])
 
   return (
-    <div className='containerListing'>
+    
     <div className="recListing">
       <h1>Recommendations</h1>
       <form onSubmit={handleSubmit}>
@@ -55,20 +55,24 @@ function Recommendations(props) {
         ? results.map((element) => {
             return (
               <div>
+                
+                  <div className='elementContent'>
                 <h3>Neighborhood: {element.Neighborhood.name}</h3>
                 <h3>Zipcode: {element.Neighborhood.zipcode}</h3>
                 <div key={element.id}>
                   <h3>Category: {element.category}</h3>
                   <p>{element.content}</p>
+                  </div>
                   <br />
+                  </div>
                   <Likes recommendation_id={element.id} authenticated={props.authenticated}/>
-                </div>
+                
               </div>
             );
           })
-        : null}
+          : null}
     </div>
-    </div>
+        
   );
 }
 

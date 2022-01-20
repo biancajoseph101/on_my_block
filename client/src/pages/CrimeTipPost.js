@@ -68,10 +68,11 @@ function CrimeTipPost(props) {
           <button type="submit">Submit</button>
         </form>
       ) : (
-        <h1>
-          Want to post a crime you just witnessed?{' '}
+        <div>
+          <h1>Want to post a crime you just witnessed?</h1>
+          <hr />
           <Link to="/login">Login</Link>
-        </h1>
+        </div>
       )}
     </div>
   );

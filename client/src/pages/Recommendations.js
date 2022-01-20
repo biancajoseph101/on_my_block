@@ -32,7 +32,7 @@ function Recommendations(props) {
   }, [])
 
   return (
-    
+
     <div className="recListing">
       <h1>Recommendations</h1>
       <form onSubmit={handleSubmit}>
@@ -48,7 +48,6 @@ function Recommendations(props) {
                             )
                         })
                     }
-
         </select>
         <button>Submit</button>
       </form>
@@ -77,4 +76,3 @@ function Recommendations(props) {
 }
      
 export default Recommendations;
-

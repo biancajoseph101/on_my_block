@@ -15,7 +15,7 @@ module.exports = {
         username: 'froglover',
         passwordDigest: 'frogpassword',
         email: 'frog@gmail.com',
-        neighborhoodId: 2,
+        neighborhoodId: 3,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -23,7 +23,7 @@ module.exports = {
         username: 'coco',
         passwordDigest: 'coco2',
         email: 'coco@gmail.com',
-        neighborhoodId: 3,
+        neighborhoodId: 4,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -31,7 +31,7 @@ module.exports = {
         username: 'jerry1',
         passwordDigest: 'jerry1',
         email: 'jerry@gmail.com',
-        neighborhoodId: 4,
+        neighborhoodId: 5,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -39,7 +39,7 @@ module.exports = {
         username: 'felipe',
         passwordDigest: 'felipe3',
         email: 'felipe@gmail.com',
-        neighborhoodId: 5,
+        neighborhoodId: 6,
         createdAt: new Date(),
         updatedAt: new Date()
       }

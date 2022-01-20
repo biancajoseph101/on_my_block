@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background:url('https://img1.goodfon.com/wallpaper/nbig/f/86/doroga-asfalt-dozhd-noch.jpg');
+  background: url('https://img1.goodfon.com/wallpaper/nbig/f/86/doroga-asfalt-dozhd-noch.jpg');
   background-size: cover;
   min-height: 100vh;
   display: flex;
@@ -8,7 +8,11 @@
   align-items: center;
   justify-content: top;
   font-size: calc(10px + 2vmin);
-  color: white;
+  text-transform: uppercase;
+  font-family: Andale Mono;
+}
+.App-background {
+  opacity: 0.5;
 }
 
 .App-logo {
@@ -21,83 +25,91 @@
 }
 
 nav {
-
-  font-family: 'Cabin Sketch', cursive;
-  min-height:fit-content;
-  margin-right: .2em;
+  font-family: Andale Mono;
+  min-height: fit-content;
+  margin: 3px;
+  padding: 5px;
+  border-top: 5px;
   text-align: center;
-  max-width:cover;
-  background-color: #92772dd5;  
-  opacity: .4;
-  border: .2em outset rgb(10, 4, 39);
-  border-top-left-radius: 5em 5em; 
-  border-top-right-radius: 5em 5em; 
-  border-bottom-left-radius: 5em 5em;
-  border-bottom-right-radius: 5em 5em;
+  max-width: cover;
+  background-color: #f5f3eee0;
+  opacity: 0.4;
+  border: 0.2em outset rgb(10, 4, 39);
+  border-radius: 4px;
   transition: all 0.5s;
 }
 
 nav:hover {
-  opacity: 1; 
-   border: .5em groove rgb(26, 26, 3);
+  opacity: 1;
+  border: 0.5em groove rgb(26, 26, 3);
 }
 
 form {
-  background: none;   
+  background: none;
   color: #222222;
   padding: 1.5rem 2rem;
   text-align: center;
 }
 
-.logininput{
-  height:4vh;
+.logininput {
+  height: 4vh;
   margin: 1.2em;
-  background:rgb(199, 199, 105);
-  border: .4em outset rgb(219, 205, 205);
-  opacity: .6;
-  padding: .4rem .4rem .4rem .4rem;
-  transition: all .2s;
+  font-family: Andale Mono;
+  background: white;
+  border: 0.4em outset rgb(219, 205, 205);
+  padding: 0.4rem 0.4rem 0.4rem 0.4rem;
+  transition: all 0.2s;
 }
 
-.logininput:hover{
-  background:yellow;
+.logininput:hover {
+  background: rgb(255, 255, 255);
   opacity: 1;
-  border: .4em outset black;
+  border: 0.4em outset black;
 }
 
-.loginbutton{
-  height: 20%;
-  border-radius:2em;
-  padding:0.4em .4em ;
+.loginbutton {
+  appearance: none;
+  background-color: #000000;
+  border: 2px solid #ffffff;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
   display: inline-block;
-        background-color: rgb(180, 180, 140);
-        border-radius: .3em;
-        border: .1em double #cccccc;
-        color: white;
-        text-align: center;
-        font-size: .5em;
-        min-width: 8vw;
-        transition: all 0.5s;
-        cursor: pointer;
-        margin: 1.5rem;
+  margin: 0.8em;
+  font-family: Andale Mono;
+  text-transform: uppercase;
+  font-size: 20px;
+  min-height: 4em;
+  outline: none;
+  font-weight: bolder;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+  touch-action: manipulation;
+  width: 90px;
+  will-change: transform;
 }
 
-.loginbutton:hover{
-
-  background-color: yellow;
-  color: black;
-  box-shadow: 0 0 .4rem .4rem white;
+.loginbutton:hover {
+  font-weight: bolder;
+  background-color: rgb(140, 162, 201);
 }
-h1{
+h1 {
   font-family: 'Acme', sans-serif;
-  color: orangered;
+  font-style: italic;
+  font-size: 45px;
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.63);
 }
 
+h3 {
+  color: white;
+}
 .sign {
-  background: url("https://www.wallpaperuse.com/wallp/0-5544_m.jpg");
+  background: url('https://www.wallpaperuse.com/wallp/0-5544_m.jpg');
   background-size: cover;
-color: black;
-  border: .1em solid black;
+  color: black;
+  border: 0.1em solid black;
   box-shadow: 1rem 1rem 1rem 1rem rgb(29, 12, 7);
   color: #ffffff;
   border-radius: 1em;
@@ -105,15 +117,14 @@ color: black;
   margin: 1.2rem;
   max-width: fit-content;
   text-align: center;
-  opacity: .7;
-  
+  opacity: 0.7;
 }
-.signinput{
-height: 20%;
+.signinput {
+  height: 20%;
   padding: 0.5em;
-  margin: .8em;
-  border-top-left-radius: 2em 2em; 
-  border-top-right-radius: 2em 2em; 
+  margin: 0.8em;
+  border-top-left-radius: 2em 2em;
+  border-top-right-radius: 2em 2em;
   border-bottom-left-radius: 2em 2em;
   border-bottom-right-radius: 2em 2em;
 }
@@ -123,22 +134,22 @@ height: 20%;
   background-color: #fbeee0;
   border: 2px solid #422800;
   border-radius: 30px;
-  box-shadow: #422800 .2rem .3rem 0 0;
+  box-shadow: #422800 0.2rem 0.3rem 0 0;
   color: #422800;
   cursor: pointer;
   display: inline-block;
   margin: 3em;
   font-weight: 600;
-  font-size: .9em;
+  font-size: 0.9em;
   line-height: 2em;
-    touch-action: manipulation;
-    transition: all .4s
+  touch-action: manipulation;
+  transition: all 0.4s;
 }
 
 .button-74:hover {
   background-color: #fff;
-  box-shadow: 0 0 .4rem .4rem white;
-  transform: translate(.5rem, .5rem);
+  box-shadow: 0 0 0.4rem 0.4rem white;
+  transform: translate(0.5rem, 0.5rem);
 }
 
 .button-74:active {
@@ -159,12 +170,12 @@ height: 20%;
   background-image: none;
   border: 1px solid #000;
   border-radius: 4px;
-  box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+  box-shadow: #fff 4px 4px 0 0, #000 4px 4px 0 1px;
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: ITCAvantGardeStd-Bk,Arial,sans-serif;
+  font-family: Andale Mono;
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
@@ -174,7 +185,7 @@ height: 20%;
   text-align: center;
   text-transform: none;
   touch-action: manipulation;
-  transition: all .4s;
+  transition: all 0.4s;
   vertical-align: middle;
   white-space: nowrap;
 }
@@ -185,11 +196,11 @@ height: 20%;
 
 .logoutbutton:hover {
   text-decoration: none;
-  background-color: rgb(56, 55, 55)
+  background-color: rgb(56, 55, 55);
 }
 
 .logoutbutton:active {
-  box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
+  box-shadow: rgba(0, 0, 0, 0.125) 0 3px 5px inset;
   outline: 0;
 }
 
@@ -204,9 +215,9 @@ height: 20%;
   }
 }
 
-.nav{
-  display:inline;
-  list-style-type:none;
+.nav {
+  display: inline;
+  list-style-type: none;
   margin: 0;
   padding: 0;
 }
@@ -215,115 +226,137 @@ height: 20%;
   float: left;
   margin-right: 0.5em;
   padding: 0.25em 1em;
-  color: #220303; 
-  border-top-left-radius: 2em 2em; 
-  border-top-right-radius: 2em 2em; 
+  color: rgb(0, 0, 0);
+  border-top-left-radius: 2em 2em;
+  border-top-right-radius: 2em 2em;
   border-bottom-left-radius: 2em 2em;
   border-bottom-right-radius: 2em 2em;
   transition: all 0.5s;
 }
 
-.nav li:hover{
+.nav li:hover {
   background-color: yellow;
-opacity: 6;
-box-shadow: 0 0 .4rem .4rem white;
+  opacity: 6;
+  box-shadow: 0 0 0.4rem 0.4rem white;
 }
 
-img{
-  border:powderblue;
+img {
+  border: powderblue;
   border-radius: 50%;
   max-height: 10vh;
-
 }
 
-.alertimage{
+.alertimage {
   border-radius: 50%;
   max-height: 30vh;
   background: rgba(198, 18, 18, 0.452);
-  border: .5em solid black;
-  animation-name:alert;
+  border: 0.5em solid black;
+  animation-name: alert;
   animation-duration: 3s;
   animation-iteration-count: infinite;
-  box-shadow: 0 0 .4rem .4rem rgb(53, 49, 49);
+  box-shadow: 0 0 0.4rem 0.4rem rgb(53, 49, 49);
 }
 
 @keyframes alert {
-  0%   {background-color: rgba(230, 0, 0, 0.452);}
-  25%  {background-color: rgba(122, 32, 21, 0.425);}
-  50%  {background-color: rgba(156, 45, 36, 0.452);}
-  100% {background-color: rgba(179, 21, 23, 0.452);}
-
+  0% {
+    background-color: rgba(230, 0, 0, 0.452);
+  }
+  25% {
+    background-color: rgba(122, 32, 21, 0.425);
+  }
+  50% {
+    background-color: rgba(156, 45, 36, 0.452);
+  }
+  100% {
+    background-color: rgba(179, 21, 23, 0.452);
+  }
 }
-.navicon{
+.navicon {
   margin: 0 0 0 1rem;
-  transition: all .5s;
+  transition: all 0.5s;
   align-items: right;
 }
 
-.navicon:hover{
-background-color: yellow;
-opacity: 6;
-box-shadow: 0 0 .4rem .4rem white;
-}
-
-a{
-  color:black;
-}
-
-a:hover{
-  color:blue;
-}
-
-.homecontainer{
-  background-color:rgb(55, 78, 141);
-  border: .1em solid #b87c45;
-  box-shadow: .6rem .6rem .6rem .6rem rgb(26, 20, 18);
-  color: rgb(97, 19, 19);
-  font-family: 'Rock Salt', cursive;
-  margin: 1.1em;
-  border-radius: 1.5em;
-  cursor:pointer;
-  transition: all .8s;
-}
-
-.homecontainer:hover{
+.navicon:hover {
   background-color: yellow;
   opacity: 6;
-  box-shadow:white;
+  box-shadow: 0 0 0.4rem 0.4rem white;
 }
 
-#search{
-  min-height:4vh;
-  min-width: 60vh;
-  margin: .8em;
-  font-family: 'Dancing Script', cursive;
-  color:rgb(245, 245, 245);
+a {
+  color: rgb(0, 0, 0);
+}
+
+a:hover {
+  color: rgb(47, 68, 73);
+}
+
+.homecontainer {
+  background-color: rgb(107, 130, 190);
+  border: 0.1em solid #ffffff;
+  box-shadow: 0.6rem 0.6rem 0.6rem 0.6rem rgb(26, 20, 18);
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  font-family: 'Acme', sans-serif;
+  margin: 1.1em;
+  border-radius: 1.5em;
+  cursor: pointer;
+  transition: all 0.8s;
+}
+
+.homecontainer:hover {
+  background-color: rgb(73, 5, 5);
+  opacity: 6;
+  box-shadow: white;
+}
+
+#search {
+  min-height: 4vh;
+  min-width: 30px;
+  margin: 0.8em;
+  font-family: Andale Mono;
+  text-transform: uppercase;
+  color: rgb(245, 245, 245);
   font-size: larger;
-  font-weight:900;
-  background:rgb(80, 147, 179);
-  border: .4em ridge rgb(209, 29, 29);
-  opacity: .6;
-  padding: .4rem .4rem .4rem .4rem;
-  transition: all .2s;
+  font-weight: 500;
+  background: rgba(186, 193, 197, 0.616);
+  border: 3px ridge rgba(255, 255, 255, 0.829);
+  padding: 0.4rem 0.4rem 0.4rem 0.4rem;
+  transition: all 0.2s;
 }
 
+#rec {
+  min-height: 4vh;
+  min-width: 30px;
+  margin: 0.8em;
+  font-family: Andale Mono;
+  text-transform: uppercase;
+  color: rgb(245, 245, 245);
+  font-size: larger;
+  font-weight: 500;
+  background: rgba(186, 193, 197, 0.616);
+  border: 3px ridge rgba(255, 255, 255, 0.829);
+  padding: 0.4rem 0.4rem 0.4rem 0.4rem;
+  transition: all 0.2s;
+}
 .homebutton {
   appearance: none;
   background-color: #000000;
-  border: 2px solid #1A1A1A;
+  border: 2px solid #ffffff;
   border-radius: 1rem;
   box-sizing: border-box;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   display: inline-block;
-  margin: .8em;
-  font-family: 'IM Fell English SC', serif;
-  font-size: .8rem;
-  min-height: 5em;
+  margin: 0.8em;
+  font-family: Andale Mono;
+  text-transform: uppercase;
+  font-size: 15px;
+  min-height: 4em;
   outline: none;
   font-weight: bolder;
-  text-decoration: none;
-  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
   user-select: none;
   touch-action: manipulation;
   width: 15%;
@@ -343,113 +376,170 @@ a:hover{
   box-shadow: none;
   transform: translateY(0);
 }
-p{
-font-family: 'Oleo Script', cursive;
-color:rgb(87, 15, 15);
-background-color: rgba(245, 222, 179, 0.185);
-border-top-left-radius: 2em 2em; 
-border-top-right-radius: 2em 2em; 
-border-bottom-left-radius: 2em 2em;
-border-bottom-right-radius: 2em 2em;
-}
-
-.errortext{
-  color:green;
-}
-
-.editbutton{
-  font-family:'Charm', cursive;
-  height: 20%;
-  border-radius:2em;
-  padding:0.4em 1.2em;
-  margin: 0 0.1em 0.1em 0;
-  display: inline-block;
-        background-color: rgb(117, 180, 105);
-        border-radius: .3em;
-        border: .1em double #cccccc;
-        color: #eeeeee;
-        text-align: center;
-        font-size: .7em;
-        padding: .8em;
-        min-width: 14vw;
-        transition: all 0.5s;
-        cursor: pointer;
-        margin: 1.5rem;
-}
-
-.editbutton:hover{
-
-  background-color: chartreuse;
-}
-
-
-.xbutton {
-  align-items: bottom;
-  height: 20%;
-  border-radius:2em;
-  padding:0.4em 1.2em;
-  margin: 0 0.1em 0.1em 0;
-  display: inline-block;
-        background-color: rgb(94, 8, 8);
-        border-radius: .3em;
-        border: .1em double #cccccc;
-        color: #eeeeee;
-        text-align: center;
-        font-size: .7em;
-        padding: .8em;
-        min-width: 14vw;
-        transition: all 0.5s;
-        cursor: pointer;
-        margin: 1.5rem;
-}
-
-.xbutton:hover{
-  background-color: red;
-}
-
-#title{
-  padding: 1em;
-  margin: .8em;
-  font-size: large;
-  font-family: 'Cabin Sketch', cursive;
-  font-style: italic;
-  border-top-left-radius: 2em 2em; 
-  border-top-right-radius: 2em 2em; 
+p {
+  font-family: Andale Mono;
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.606);
+  border-top-left-radius: 2em 2em;
+  border-top-right-radius: 2em 2em;
   border-bottom-left-radius: 2em 2em;
   border-bottom-right-radius: 2em 2em;
 }
 
-#content{
-  padding: .5em;
-  margin:2em;
+.errortext {
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.356);
+  font-size: medium;
+}
+
+.editbutton {
+  font-family: Andale Mono;
+  height: 20%;
+  border-radius: 2em;
+  padding: 0.4em 1.2em;
+  margin: 0 0.1em 0.1em 0;
+  display: inline-block;
+  background-color: rgb(81, 150, 177);
+  border-radius: 0.3em;
+  border: 0.1em double #cccccc;
+  color: #eeeeee;
+  text-align: center;
+  font-size: 0.7em;
+  padding: 0.8em;
+  min-width: 14vw;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 1.5rem;
+}
+
+.editbutton:hover {
+  background-color: chartreuse;
+}
+
+.xbutton {
+  align-items: bottom;
+  height: 20%;
+  border-radius: 2em;
+  padding: 0.4em 1.2em;
+  margin: 0 0.1em 0.1em 0;
+  display: inline-block;
+  background-color: rgb(94, 8, 8);
+  border-radius: 0.3em;
+  border: 0.1em double #cccccc;
+  color: #eeeeee;
+  text-align: center;
+  font-size: 0.7em;
+  padding: 0.8em;
+  min-width: 14vw;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 1.5rem;
+}
+
+.xbutton:hover {
+  background-color: rgb(143, 0, 0);
+}
+
+#title {
+  padding: 1em;
+  margin: 0.8em;
+  font-size: large;
+  font-family: 'Cabin Sketch', cursive;
+  font-style: italic;
+  border-top-left-radius: 2em 2em;
+  border-top-right-radius: 2em 2em;
+  border-bottom-left-radius: 2em 2em;
+  border-bottom-right-radius: 2em 2em;
+}
+
+#content {
+  padding: 0.5em;
+  margin: 2em;
   min-height: 15vh;
   min-width: 70vw;
 }
 
-.our-about{
-  font-family: 'Oleo Script', cursive;
-color: rgb(170, 170, 87);
-font-size: 1.2em;
-background-color: rgba(99, 123, 153, 0.185);
-border-top-left-radius: 2em 2em; 
-border-top-right-radius: 2em 2em; 
-border-bottom-left-radius: 2em 2em;
-border-bottom-right-radius: 2em 2em;
-box-shadow: 0 0 .4rem .4rem rgb(132, 142, 165);
+.our-about {
+  font-family: Andale Mono;
+  color: rgb(255, 255, 255);
+  font-size: 1em;
+  background-color: rgba(122, 135, 151, 0.527);
+  border-top-left-radius: 1em 1em;
+  padding: 5px;
+  border-top-right-radius: 2em 2em;
+  border-bottom-left-radius: 2em 2em;
+  border-bottom-right-radius: 2em 2em;
+  box-shadow: 0 0 0.4rem 0.4rem rgb(132, 142, 165);
 }
 
-.aboutul{
+.aboutul {
   list-style-type: none;
   display: inline;
+  display: flex;
+  justify-content: center;
 }
-li{
+li {
   float: right;
   text-align: center;
-  
 }
 
-.abouttext{
+.abouttext {
   color: white;
   text-decoration: none;
 }
 
+label {
+  background-color: rgba(255, 255, 255, 0.425);
+  border-radius: 3px;
+  padding: 10px;
+  margin: 20px;
+}
+
+button {
+  appearance: none;
+  background-color: #000000;
+  border: 2px solid #ffffff;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0.8em;
+  font-family: Andale Mono;
+  text-transform: uppercase;
+  font-size: 20px;
+  min-height: 4em;
+  outline: none;
+  font-weight: bolder;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+  touch-action: manipulation;
+  width: 90px;
+  will-change: transform;
+}
+
+button:hover {
+  font-weight: bolder;
+  background-color: rgb(140, 162, 201);
+}
+.elementContent{
+  background-color: rgba(0, 0, 0, 0.455);
+}
+.form{
+  background-color: rgba(255, 255, 255, 0.517);
+  width:100%;
+  
+}
+.formField{
+  padding: 10%;
+
+}
+.formTextArea{
+  margin-top: 5%;
+  height: 100px;
+  width: 300px;
+}
+.likes{
+  background-color: rgba(0, 0, 0, 0.291);
+  color: white;
+}

@@ -546,7 +546,7 @@ button:hover {
 
 .hometext{
   background-color: rgba(0, 0, 0, 0.63);
-
+}
 .elementContent{
   background-color: rgba(0, 0, 0, 0.455);
 }
@@ -567,4 +567,19 @@ button:hover {
 .likes{
   background-color: rgba(0, 0, 0, 0.291);
   color: white;
+}
+
+.formTextArea {
+  min-height: 4vh;
+  min-width: 30px;
+  margin: 0.8em;
+  font-family: Andale Mono;
+  text-transform: uppercase;
+  color: rgb(245, 245, 245);
+  font-size: larger;
+  font-weight: 500;
+  background: rgba(186, 193, 197, 0.616);
+  border: 3px ridge rgba(255, 255, 255, 0.829);
+  padding: 0.4rem 0.4rem 0.4rem 0.4rem;
+  transition: all 0.2s;
 }

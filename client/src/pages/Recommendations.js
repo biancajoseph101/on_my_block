@@ -32,11 +32,11 @@ function Recommendations(props) {
     }, [])
 
   return (
-
+    
     <div className="recListing">
       <h1>Recommendations</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="recommendations"> </label>
+        <label htmlFor="recommendations">zip code</label>
         <select name="rec" id="rec" onChange={handleChange}>
           <option value="">Choose...</option>
           {
@@ -55,21 +55,26 @@ function Recommendations(props) {
         ? results.map((element) => {
             return (
               <div>
+                
+                  <div className='elementContent'>
                 <h3>Neighborhood: {element.Neighborhood.name}</h3>
                 <h3>Zipcode: {element.Neighborhood.zipcode}</h3>
                 <div key={element.id}>
                   <h3>Category: {element.category}</h3>
                   <p>{element.content}</p>
+                  </div>
                   <br />
+                  </div>
                   <Likes recommendation_id={element.id} authenticated={props.authenticated}/>
-                </div>
+                
               </div>
             );
           })
-        : null}
+          : null}
     </div>
+        
   );
 }
-
+     
 export default Recommendations;
 

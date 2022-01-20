@@ -20,9 +20,6 @@ function CrimeTipPost(props) {
       userId: props.userId,
     }
     
-    const postResponse = await axios.post("http://localhost:3001/api/tips/", newCrime)
-    setClick(true)
-
     const postResponse = await axios.post(
       'http://localhost:3001/api/tips/',
       newCrime
@@ -36,7 +33,8 @@ function CrimeTipPost(props) {
 
       {props.authenticated ? (
         <form onSubmit={createCrimeTip}>
-          <div>
+          <div className='form'>
+          <div className='formField'>
             <label>Crime</label>
             <input
               name="title"
@@ -46,7 +44,7 @@ function CrimeTipPost(props) {
             />
           </div>
 
-          <div>
+          <div className='formField'>
             <label>Zipcode</label>
             <input
               name="zipcode"
@@ -56,14 +54,16 @@ function CrimeTipPost(props) {
             />
           </div>
 
-          <div>
+          <div className='formField'>
             <label>Crime witnessed</label>
             <textarea
               name="content"
               type="text"
               placeholder="Describe the crime"
+              className='formTextArea'
               // onChange={handleChange}
             />
+          </div>
           </div>
           <button type="submit">Submit</button>
         </form>

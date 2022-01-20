@@ -1,12 +1,13 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { BaseURL } from "../globals";
 
 const Comments = (props) => {
 
     const [results, setResults] = useState([])
 
     const getComments = async () => {
-        const res = await axios.get(`http://localhost:3001/api/comments/`)
+        const res = await axios.get(`${BaseURL}/comments/`)
         setResults(res.data.comments)
     }
 
@@ -26,7 +27,7 @@ const Comments = (props) => {
                                     element.userId === props.id && (
                                         <>
                                             <button onClick={async () => {
-                                                await axios.delete(`http://localhost:3001/api/comments/${element.id}`)
+                                                await axios.delete(`${BaseURL}/comments/${element.id}`)
                                                 window.location.reload()
                                             }}>Delete</button>
                                         </>

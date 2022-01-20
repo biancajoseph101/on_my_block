@@ -4,6 +4,7 @@
   "description": "[ On My Block App](www.linkedin.com/biancaclairejoseph) | [Trello](https://trello.com/b/6YQIfgNk/on-my-block) | [Presentation](https://docs.google.com/presentation/d/1dZ0a4pu5cIhSksLojSuZa5WLPNdwoxLcTuiJQrp3DOY/edit?usp=sharing)",
   "main": "server.js",
   "scripts": {
+    "build": "npm install && npx sequelize-cli db:migrate && cd client && rm -rf build && npm install && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js",
     "start": "node server.js"
@@ -33,6 +34,7 @@
     "sequelize": "^6.13.0"
   },
   "devDependencies": {
+    "mini-css-extract-plugin": "2.4.5",
     "nodemon": "^2.0.15"
   }
 }

@@ -5,7 +5,6 @@ import CreateComment from "./CreateComment";
 import { BaseURL } from "../globals";
 
 const CrimeDetails = (props) => {
-
     const [results, setResults] = useState({})
 
     const getResults = async () => {

@@ -36,7 +36,7 @@ function Recommendations(props) {
     <div className="recListing">
       <h1>Recommendations</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="recommendations"> </label>
+        <label htmlFor="recommendations">zip code</label>
         <select name="rec" id="rec" onChange={handleChange}>
           <option value="">Choose...</option>
           {

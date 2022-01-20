@@ -11,7 +11,7 @@ function Likes(props) {
     
 }
 getlikes()
-  const [newlikes, setNewLikes] = useState(0)
+  const [newLikes, setNewLikes] = useState(0)
   const [click, setClick] = useState(false)
 
   const handleLike = async (e) => {
@@ -19,12 +19,12 @@ getlikes()
     console.log(props)
   
     if (click === false) {
-      const newlikes = likes+1
-      setNewLikes(newlikes)
+      const newLikes = likes+1
+      setNewLikes(newLikes)
      const recommendations = await axios.put(
         `http://localhost:3001/api/recommendations/${props.recommendation_id}`,
         {
-          likes: newlikes
+          likes: newLikes
         }
       )
       const newClick = true
@@ -33,12 +33,12 @@ getlikes()
   
     } 
     if (click === true) {
-      const newlikes = likes-1
-      setNewLikes(newlikes)
+      const newLikes = likes-1
+      setNewLikes(newLikes)
       await axios.put(
         `http://localhost:3001/api/recommendations/${props.recommendation_id}`,
         {
-          likes:newlikes,
+          likes:newLikes,
         }
       )
       const newClick = false
@@ -47,7 +47,7 @@ getlikes()
   }
 
   return (
-    <div>
+    <div className="likes">
       {props.authenticated ? (
         <>
           <button onClick={handleLike}>like</button>

@@ -33,6 +33,7 @@ function CrimeTipPost(props) {
 
       {props.authenticated ? (
         <form onSubmit={createCrimeTip}>
+          <h1>Let's keep the city safe</h1>
           <div className="form">
             <div className="formField">
               <h2>Crime</h2>
@@ -62,7 +63,7 @@ function CrimeTipPost(props) {
                 name="content"
                 type="text"
                 placeholder="Describe the crime"
-                className="formTextArea"
+                className="formTextAreawitness"
                 // onChange={handleChange}
               />
             </div>

@@ -468,7 +468,8 @@ p {
   font-size: 1em;
   background-color: rgba(122, 135, 151, 0.527);
   border-top-left-radius: 1em 1em;
-  padding: 5px;
+  padding: .5em;
+  margin: 2em;
   border-top-right-radius: 2em 2em;
   border-bottom-left-radius: 2em 2em;
   border-bottom-right-radius: 2em 2em;
@@ -545,6 +546,7 @@ button:hover {
 }
 
 .hometext{
+  padding: 1em;
   background-color: rgba(0, 0, 0, 0.63);
 }
 .elementContent{
@@ -556,30 +558,45 @@ button:hover {
   
 }
 .formField{
-  padding: 10%;
+  min-width: 40vw;
 
 }
-.formTextArea{
-  margin-top: 5%;
-  height: 100px;
-  width: 300px;
-}
+
 .likes{
   background-color: rgba(0, 0, 0, 0.291);
   color: white;
 }
 
 .formTextArea {
-  min-height: 4vh;
-  min-width: 30px;
+  max-height: 4vh;
+  min-width: 30vw;
   margin: 0.8em;
   font-family: Andale Mono;
   text-transform: uppercase;
   color: rgb(245, 245, 245);
-  font-size: larger;
+  font-size: large;
   font-weight: 500;
   background: rgba(186, 193, 197, 0.616);
   border: 3px ridge rgba(255, 255, 255, 0.829);
   padding: 0.4rem 0.4rem 0.4rem 0.4rem;
   transition: all 0.2s;
+}
+
+.formTextAreawitness {
+  min-height: 15vh;
+  min-width: 30vw;
+  margin: 0.8em;
+  font-family: Andale Mono;
+  text-transform: uppercase;
+  color: rgb(245, 245, 245);
+  font-size: large;
+  font-weight: 500;
+  background: rgba(186, 193, 197, 0.616);
+  border: 3px ridge rgba(255, 255, 255, 0.829);
+  padding: 0.4rem 0.4rem 0.4rem 0.4rem;
+  transition: all 0.2s;
+}
+
+.commentsubmit{
+  min-width: 30vw;
 }

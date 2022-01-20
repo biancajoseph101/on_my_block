@@ -28,9 +28,10 @@ const CreateComment = (props) => {
                 (props.authenticated) ?
                     (
                         <form onSubmit={handleSubmit}>
-                            <label htmlFor="content">Content: </label>
-                            <textarea id="content" type='text' onChange={handleChange} />
-                            <button>Submit</button>
+                            <label>Post a Comment </label>
+                            <br/>
+                            <textarea className="formTextAreawitness" id="content" type='text' onChange={handleChange} />
+                            <button className="commentsubmit">Submit</button>
                         </form>
                     ) : <h2>Want to share your opinion?<Link to='/login'>Login</Link></h2>
             }

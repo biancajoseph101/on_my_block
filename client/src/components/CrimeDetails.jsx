@@ -30,9 +30,11 @@ const CrimeDetails = (props) => {
         <div>
             <div>
                 <img className="alertimage" src="/C132EAB6-3B84-44AE-AD95-DE94BABBF8C7.png" />
-                <h1>{results.title}</h1>
+                <h1>Reported in this area is:  {results.title}</h1>
                 <hr />
-                <p>The person or persons who committed the {results.title} allegedly {results.content}. Please be safe out there.</p>
+                <p>{results.content}. </p>
+                <br/>
+                <p>Please be safe out there.</p>
             </div>
             <br />
             {updateButton}

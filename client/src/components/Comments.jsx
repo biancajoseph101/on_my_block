@@ -1,12 +1,13 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { BaseURL } from "../globals";
 
 const Comments = (props) => {
 
     const [results, setResults] = useState([])
 
     const getComments = async () => {
-        const res = await axios.get(`http://localhost:3001/api/comments/`)
+        const res = await axios.get(`${BaseURL}/comments/`)
         setResults(res.data.comments)
     }
 

@@ -61,9 +61,9 @@ On My Block is an app created to encourage local public safety for residents of 
 
 ### **_Screenshots_**
 
-![Image](https://imgur.com/a/gh79lbX)
+![Image](https://imgur.com/a/gh79lbX.png)
 
-![Image](https://imgur.com/YGsvbmq)
+![Image](https://imgur.com/YGsvbmq.png)
 
 ---
 

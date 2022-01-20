@@ -75,6 +75,6 @@ function Recommendations(props) {
         
   );
 }
-
+     
 export default Recommendations;
 

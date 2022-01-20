@@ -3,7 +3,6 @@ import axios from 'axios'
 
 
 function Likes(props) {
-  // Getting the recommendations info
   const [likes, setLikes] = useState(0);
 
   const handleLike = async (e) => {

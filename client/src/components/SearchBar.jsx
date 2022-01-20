@@ -37,10 +37,7 @@ const SearchBar = (props) => {
     return (
         <div>
 
-            {
-                (props.authenticated) ? <h1>Welcome back, {props.username}!</h1> : null
-            }
-            <h1>What's the Talk of the Town?</h1>
+            <h1>Search a zipcode to find posted crimetips in the area</h1>
             <form className="homeform" onSubmit={handleSubmit}>
                 <label htmlFor="search">Zip Code: </label>
 

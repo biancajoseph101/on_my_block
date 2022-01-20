@@ -17,11 +17,8 @@ function CrimeTipPost(props) {
       content: e.target.content.value,
       neighborhoodId: response.data[0].id,
 
-      userId: props.userId,
-    }
-    
-    const postResponse = await axios.post("http://localhost:3001/api/tips/", newCrime)
-    setClick(true)
+      userId: props.userId
+    };
 
     const postResponse = await axios.post(
       'http://localhost:3001/api/tips/',
@@ -68,10 +65,11 @@ function CrimeTipPost(props) {
           <button type="submit">Submit</button>
         </form>
       ) : (
-        <h1>
-          Want to post a crime you just witnessed?{' '}
+        <div>
+          <h1>Want to post a crime you just witnessed?</h1>
+          <hr />
           <Link to="/login">Login</Link>
-        </h1>
+        </div>
       )}
     </div>
   );

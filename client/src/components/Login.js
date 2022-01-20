@@ -22,6 +22,7 @@ export default function Login(props) {
 
   return (
     <div>
+      <h1>The word on the street is... </h1>
       <hr />
       {props.authenticated === true ? <Redirect to="/" /> : null}
 
@@ -47,7 +48,7 @@ export default function Login(props) {
         <button className="loginbutton">Login</button>
       </form>
       <h1>
-        Don't have an account?<Link to="/signup">Sign Up</Link>
+        Don't have an account? <Link to="/signup">Sign Up</Link>
       </h1>
     </div>
   );

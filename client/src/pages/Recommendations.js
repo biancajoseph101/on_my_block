@@ -7,6 +7,11 @@ function Recommendations(props) {
   const [click, setClick] = useState(false);
   const [results, setResults] = useState([]);
 
+  const [newlikes, setLikes] = useState({
+    likes: 0
+  });
+  const [clicked, setClicked] = useState(false);
+
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
@@ -20,34 +25,44 @@ function Recommendations(props) {
     setClick(true);
   };
   // Neighborhood Data
-    const [zips, setZips] = useState([])
+  const [zips, setZips] = useState([]);
 
-    const getNeighborhoods = async (e) => {
-        const res = await axios.get(`http://localhost:3001/api/neighborhoods/`)
-        setZips(res.data.neighborhoods)
-    }
+  const getNeighborhoods = async (e) => {
+    const res = await axios.get(`http://localhost:3001/api/neighborhoods/`);
+    setZips(res.data.neighborhoods);
+  };
 
-    useEffect(() => {
-        getNeighborhoods()
-    }, [])
+  const handleLike = async (e) => {
+    e.preventDefault();
+
+    zips.forEach((element) => {
+      let payload = element.likes + 1;
+      const res = axios.put(
+        `http://localhost:3001/api/recommendations/${element.id}`,
+        { likes: 1 }
+      );
+    });
+    setClicked(true);
+  };
+
+  useEffect(() => {
+    getNeighborhoods();
+  }, []);
 
   return (
-
     <div className="recListing">
       <h1>Recommendations</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="recommendations"> </label>
         <select name="rec" id="rec" onChange={handleChange}>
           <option value="">Choose...</option>
-          {
-                        zips.map((element) => {
-                            return (
-                                <React.Fragment key={element.id}>
-                                    <option value={element.zipcode}>{element.zipcode}</option>
-                                </React.Fragment>
-                            )
-                        })
-                    }
+          {zips.map((element) => {
+            return (
+              <React.Fragment key={element.id}>
+                <option value={element.zipcode}>{element.zipcode}</option>
+              </React.Fragment>
+            );
+          })}
         </select>
         <button>Submit</button>
       </form>
@@ -60,8 +75,12 @@ function Recommendations(props) {
                 <div key={element.id}>
                   <h3>Category: {element.category}</h3>
                   <p>{element.content}</p>
-                  <br />
-                  <Likes recommendation_id={element.id} authenticated={props.authenticated}/>
+                  <h1>{element.likes} Likes</h1>
+                  {props.authenticated ? (
+                    !clicked ? (
+                      <button onClick={handleLike}>like</button>
+                    ) : null
+                  ) : null}
                 </div>
               </div>
             );
@@ -72,4 +91,3 @@ function Recommendations(props) {
 }
 
 export default Recommendations;
-

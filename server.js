@@ -1,5 +1,6 @@
-const path = require('path')
-const app = require('express')();
+const path = require('path');
+const express = require('express');
+const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const AuthRouter = require('./routes/AuthRouter');
@@ -21,10 +22,10 @@ app.use('/auth', AuthRouter);
 
 //I put that there so that the routes that are referenced in the controllers can be used -Calvin
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')))
+  app.use(express.static(path.join(__dirname, 'client/build')));
   app.get('*', (req, res) => {
-    res.sendFile(path.join(`${__dirname}/client/build/index.html`))
-  })
+    res.sendFile(path.join(`${__dirname}/client/build/index.html`));
+  });
 }
 
 app.listen(PORT, () => console.log(`Server Started On Port: ${PORT}`));

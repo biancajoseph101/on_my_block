@@ -30,7 +30,7 @@ const CrimeDetails = (props) => {
         <div>
             <div>
                 <img className="alertimage" src="/C132EAB6-3B84-44AE-AD95-DE94BABBF8C7.png" />
-                <h1>Reported in this area is:  {results.title}</h1>
+                <h1>Reported in this area:  {results.title}</h1>
                 <hr />
                 <p>{results.content}. </p>
                 <br/>

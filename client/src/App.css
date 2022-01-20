@@ -600,3 +600,8 @@ button:hover {
 .commentsubmit{
   min-width: 30vw;
 }
+
+.allcomments{
+  min-width: 40vw;
+  
+}

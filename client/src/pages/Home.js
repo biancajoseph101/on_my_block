@@ -31,8 +31,8 @@ function Home(props) {
       <hr />
       <br />
       <p>
-        On the Block is where you can recieve all the info you need when
-        entering a new town. If you make an account you can post crime tips,
+        On my Block is where you can receive all the info you need when entering
+        a new town. If you make an account you can post crime tips,
         recommendations about your city, and even like and comment on other's
         posts. There's a community of folks out there from all over the country.
         We have safety tips out there as well.

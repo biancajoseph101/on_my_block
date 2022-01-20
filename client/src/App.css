@@ -11,6 +11,9 @@
   text-transform: uppercase;
   font-family: Andale Mono;
 }
+.App-background {
+  opacity: 0.5;
+}
 
 .App-logo {
   height: 40vmin;
@@ -379,7 +382,7 @@ a:hover {
 p {
   font-family: Andale Mono;
   color: rgb(255, 255, 255);
-  background-color: rgba(245, 222, 179, 0.185);
+  background-color: rgba(0, 0, 0, 0.606);
   border-top-left-radius: 2em 2em;
   border-top-right-radius: 2em 2em;
   border-bottom-left-radius: 2em 2em;
@@ -543,4 +546,25 @@ button:hover {
 
 .hometext{
   background-color: rgba(0, 0, 0, 0.63);
+
+.elementContent{
+  background-color: rgba(0, 0, 0, 0.455);
+}
+.form{
+  background-color: rgba(255, 255, 255, 0.517);
+  width:100%;
+  
+}
+.formField{
+  padding: 10%;
+
+}
+.formTextArea{
+  margin-top: 5%;
+  height: 100px;
+  width: 300px;
+}
+.likes{
+  background-color: rgba(0, 0, 0, 0.291);
+  color: white;
 }

@@ -34,7 +34,7 @@
     "sequelize": "^6.13.0"
   },
   "devDependencies": {
-    "mini-css-extract-plugin": "2.4.5",
+    "mini-css-extract-plugin": "2.5.1",
     "nodemon": "^2.0.15"
   }
 }

@@ -15,7 +15,6 @@ export default function Login(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = await LoginUser(formValues);
-    // setFormValues({ username: '', password: '' });
     props.setUser(payload);
     props.toggleAuthenticated(true);
   };

@@ -54,14 +54,20 @@ function Recommendations(props) {
       {click
         ? results.map((element) => {
             return (
-              <div key={element.id}>
-                <h3>Neighborhood: {element.Neighborhood.name}</h3>
-                <h3>Zipcode: {element.Neighborhood.zipcode}</h3>
-                <div key={element.id}>
-                  <h3>Category: {element.category}</h3>
-                  <p>{element.content}</p>
-                  <br />
-                  <Likes recommendation_id={element.id} />
+              <div>
+
+                <div className='elementContent' >
+                  <div key={element.id}>
+                    <h3>Neighborhood: {element.Neighborhood.name}</h3>
+                    <h3>Zipcode: {element.Neighborhood.zipcode}</h3>
+                    <div key={element.id}>
+                      <h3>Category: {element.category}</h3>
+                      <p>{element.content}</p>
+                      <br />
+                      </div>
+                      <Likes recommendation_id={element.id} />
+
+                    </div>
                 </div>
               </div>
             );

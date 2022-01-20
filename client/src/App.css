@@ -526,3 +526,18 @@ button:hover {
   background-color: #000;
   opacity: 0.5;
 }
+.form{
+  background-color: white;
+  opacity: 0.5;
+  width:100%;
+  
+}
+.formField{
+  padding: 10%;
+
+}
+.formTextArea{
+  margin-top: 5%;
+  height: 100px;
+  width: 300px;
+}

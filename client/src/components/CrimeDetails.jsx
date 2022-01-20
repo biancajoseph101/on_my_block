@@ -10,12 +10,10 @@ const CrimeDetails = (props) => {
     const getResults = async () => {
         const res = await axios.get(`http://localhost:3001/api/tips/${props.match.params.id}`)
         setResults(res.data.tips)
-        // console.log(user)
     }
 
     useEffect(() => {
         getResults()
-        // console.log(results)
     }, [])
 
     const handleDelete = () => {

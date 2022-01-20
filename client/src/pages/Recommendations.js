@@ -7,11 +7,6 @@ function Recommendations(props) {
   const [click, setClick] = useState(false);
   const [results, setResults] = useState([]);
 
-  const [newlikes, setLikes] = useState({
-    likes: 0
-  });
-  const [clicked, setClicked] = useState(false);
-
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
@@ -30,19 +25,6 @@ function Recommendations(props) {
   const getNeighborhoods = async (e) => {
     const res = await axios.get(`http://localhost:3001/api/neighborhoods/`);
     setZips(res.data.neighborhoods);
-  };
-
-  const handleLike = async (e) => {
-    e.preventDefault();
-
-    zips.forEach((element) => {
-      let payload = element.likes + 1;
-      const res = axios.put(
-        `http://localhost:3001/api/recommendations/${element.id}`,
-        { likes: 1 }
-      );
-    });
-    setClicked(true);
   };
 
   useEffect(() => {
@@ -75,12 +57,11 @@ function Recommendations(props) {
                 <div key={element.id}>
                   <h3>Category: {element.category}</h3>
                   <p>{element.content}</p>
-                  <h1>{element.likes} Likes</h1>
-                  {props.authenticated ? (
-                    !clicked ? (
-                      <button onClick={handleLike}>like</button>
-                    ) : null
-                  ) : null}
+
+                  <Likes
+                    recommendation_id={element.id}
+                    authenticated={props.authenticated}
+                  />
                 </div>
               </div>
             );

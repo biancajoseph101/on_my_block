@@ -24,15 +24,15 @@
 nav {
   font-family: Andale Mono;
   min-height: fit-content;
-  margin: 3px;
-  padding: 5px;
-  border-top: 5px;
+  margin: .1rem;
+  padding: .2rem;
+  border-top: .3em;
   text-align: center;
   max-width: cover;
   background-color: #f5f3eee0;
   opacity: 0.4;
   border: 0.2em outset rgb(10, 4, 39);
-  border-radius: 4px;
+  border-radius: .2rem;
   transition: all 0.5s;
 }
 
@@ -216,6 +216,7 @@ max-width: 20em;
   list-style-type: none;
   margin: 0;
   padding: 0;
+ 
 }
 
 .nav li {
@@ -283,6 +284,7 @@ img {
 
 a {
   color: rgb(0, 0, 0);
+  max-height: fit-content;
 }
 
 a:hover {
@@ -539,3 +541,6 @@ button:hover {
   color:white;
 }
 
+.hometext{
+  background-color: rgba(0, 0, 0, 0.63);
+}

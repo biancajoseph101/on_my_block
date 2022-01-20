@@ -30,7 +30,7 @@ function Home(props) {
       />
       <hr />
       <br />
-      <p>
+      <p className="hometext">
         On my Block is where you can receive all the info you need when entering
         a new town. If you make an account you can post crime tips,
         recommendations about your city, and even like and comment on other's

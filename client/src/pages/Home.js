@@ -35,7 +35,7 @@ function Home(props) {
         a new town. If you make an account you can post crime tips,
         recommendations about your city, and even like and comment on other's
         posts. There's a community of folks out there from all over the country.
-        We have safety tips out there as well.
+        We have safety tips out here well.
       </p>
       <h1> Get involved!</h1>
       <hr />

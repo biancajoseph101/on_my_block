@@ -20,8 +20,8 @@ const Comments = (props) => {
                 results.map((element) => {
                     if (element.crimeId === parseInt(props.match.params.id)) {
                         return (
-                            <div key={element.id} style={{ display: 'flex', justifyContent: 'center' }}>
-                                <p>{element.content}</p>
+                            <div key={element.id} style={{ display: 'flex', justifyContent: 'center' }} >
+                                <p className="allcomments">{element.content}</p>
                                 {
                                     element.userId === props.id && (
                                         <>

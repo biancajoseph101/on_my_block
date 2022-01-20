@@ -522,3 +522,7 @@ button:hover {
   font-weight: bolder;
   background-color: rgb(140, 162, 201);
 }
+.containerListing{
+  background-color: #000;
+  opacity: 0.6;
+}

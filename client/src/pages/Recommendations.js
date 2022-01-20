@@ -32,7 +32,7 @@ function Recommendations(props) {
     }, [])
 
   return (
-
+    <div className='containerListing'>
     <div className="recListing">
       <h1>Recommendations</h1>
       <form onSubmit={handleSubmit}>
@@ -67,6 +67,7 @@ function Recommendations(props) {
             );
           })
         : null}
+    </div>
     </div>
   );
 }

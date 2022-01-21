@@ -7,6 +7,7 @@ function Recommendations(props) {
   const [search, setSearch] = useState('');
   const [click, setClick] = useState(false);
   const [results, setResults] = useState([]);
+  const [recommendations, setRecommendations] = useState([]);
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -22,7 +23,8 @@ function Recommendations(props) {
       category: e.target.category.value,
       content: e.target.content.value,
       likes: 0,
-      neighborhoodId: response.data[0].id
+      neighborhoodId: response.data[0].id,
+      userId: props.id
     };
     await axios.post(
       `http://localhost:3001/api/recommendations/`,
@@ -46,9 +48,14 @@ function Recommendations(props) {
     const res = await axios.get(`http://localhost:3001/api/neighborhoods/`);
     setZips(res.data.neighborhoods);
   };
+  const getRecommendations = async (e) => {
+    const res = await axios.get(`http://localhost:3001/api/recommendations/`);
+    setRecommendations(res.data.recommendations);
+  };
 
   useEffect(() => {
     getNeighborhoods();
+    getRecommendations();
   }, []);
 
   return (
@@ -83,6 +90,48 @@ function Recommendations(props) {
                   </div>
                   <br />
                 </div>
+                {recommendations.map((element) => {
+                  if (element.userId === parseInt(props.id)) {
+                    return (
+                      <div key={element.id}>
+                        <p className="allcomments">
+                          Category: {element.category}
+                        </p>
+                        <p className="allcomments">{element.content}</p>
+                        {element.userId === props.id && (
+                          <>
+                            <button
+                              id="editbuttonid"
+                              onClick={() =>
+                                props.history.push(
+                                  `/recommendations/update/${element.id}`
+                                )
+                              }
+                            >
+                              EDIT
+                            </button>
+                            <button
+                              id="xbuttonid"
+                              onClick={async () => {
+                                await axios.delete(
+                                  `http://localhost:3001/api/recommendations/${element.id}`
+                                );
+                                window.location.reload();
+                              }}
+                            >
+                              Delete
+                            </button>
+                            <Likes
+                              recommendation_id={element.id}
+                              authenticated={props.authenticated}
+                            />
+                            <hr />
+                          </>
+                        )}
+                      </div>
+                    );
+                  }
+                })}
                 <Likes
                   recommendation_id={element.id}
                   authenticated={props.authenticated}
@@ -128,7 +177,7 @@ function Recommendations(props) {
         </div>
       ) : (
         <div>
-          <h1>Do you wanna post some recommendatoins?</h1>
+          <h1>Do you wanna post some recommendations?</h1>
           <hr />
           <Link className="biggerlinks" to="/login">
             Login!

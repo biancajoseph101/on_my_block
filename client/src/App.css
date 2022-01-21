@@ -416,11 +416,33 @@ p {
   margin: 1.5rem;
 }
 
+#editbuttonid{
+  height: 20%;
+  border-radius: 2em;
+  padding: 0.4em 1.2em;
+  margin: 0 0.1em 0.1em 0;
+  display: inline-block;
+  background-color: rgb(81, 150, 177);
+  border-radius: 0.3em;
+  border: 0.1em double #cccccc;
+  color: #eeeeee;
+  text-align: center;
+  font-size: .5em;
+  width: 6em;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 1.5rem;
+}
+
+#editbuttonid:hover{
+  background-color: chartreuse;
+}
+
 .editbutton:hover {
   background-color: chartreuse;
 }
 
-.xbutton {
+ .xbutton {
   align-items: bottom;
   height: 20%;
   border-radius: 2em;
@@ -438,6 +460,25 @@ p {
   transition: all 0.5s;
   cursor: pointer;
   margin: 1.5rem;
+} 
+
+#xbuttonid{
+  height: 4em;
+  border-radius: 2em;
+  padding: 0.4em 1.2em;
+  margin: 0 0.1em 0.1em 0;
+  display: inline-block;
+  background-color: rgb(94, 8, 8);
+  border-radius: 0.3em;
+  border: 0.1em double #cccccc;
+  color: #eeeeee;
+  font-size: .5em;
+  width: 6em;
+  cursor: pointer;
+}
+
+#xbuttonid:hover{
+  background-color: rgb(143, 0, 0);
 }
 
 .xbutton:hover {

@@ -610,3 +610,19 @@ button:hover {
   min-width: 40vw;
   
 }
+
+.biggerlinks {
+  font-size: 1.1em;
+  color:white;
+  background-color: rgba(0, 0, 0, 0.644);
+  border-top-right-radius: 2em 2em ;
+  border-bottom-left-radius: 2em 2em;
+  border-bottom-right-radius: 2em 2em;
+  border-top-left-radius: 2em 2em;
+  padding:.8rem;
+}
+
+.biggerlinks:hover{
+background-color: yellow;
+  opacity: 6;
+  box-shadow: 0 0 0.4rem 0.4rem white;}

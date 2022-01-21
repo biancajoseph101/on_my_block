@@ -130,7 +130,9 @@ function Recommendations(props) {
         <div>
           <h1>Do you wanna post some recommendatoins?</h1>
           <hr />
-          <Link to="/login">Login!</Link>
+          <Link className="biggerlinks" to="/login">
+            Login!
+          </Link>
         </div>
       )}
     </div>

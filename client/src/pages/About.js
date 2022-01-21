@@ -18,9 +18,7 @@ const About = () => {
           indicate criminal activity.
         </h5>
         <hr />
-        <h1>
-          This app was made by was created by Bianca, Abidur, Calvin and Nashid
-        </h1>
+        <h1>This app was created by Bianca, Abidur, Calvin and Nashid</h1>
         <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" />
         <div className="links">
           <ul className="aboutul">

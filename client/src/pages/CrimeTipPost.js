@@ -71,7 +71,9 @@ function CrimeTipPost(props) {
         <div>
           <h1>Want to post a crime you just witnessed?</h1>
           <hr />
-          <Link to="/login">Login</Link>
+          <Link className="biggerlinks" to="/login">
+            Login
+          </Link>
         </div>
       )}
     </div>

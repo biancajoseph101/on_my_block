@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { BaseURL } from '../globals'
 
 const EditRecommendations = (props) => {
 
@@ -16,7 +17,7 @@ const EditRecommendations = (props) => {
 }
 
 const getMoreResults = async () => {
-  const res = await axios.get(`http://localhost:3001/api/recommendations/${props.match.params.id}`)
+  const res = await axios.get(`${ BaseURL }/recommendations/${props.match.params.id}`)
   setMoreResults(res.data.recommendation)
 }
 
@@ -26,7 +27,7 @@ useEffect(() => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.put(`http://localhost:3001/api/recommendations/${props.match.params.id}`, {
+        axios.put(`${ BaseURL }/recommendations/${props.match.params.id}`, {
             category: category,
             content: content,
             userId: props.userId,

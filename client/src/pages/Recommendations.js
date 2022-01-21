@@ -18,7 +18,7 @@ function Recommendations(props) {
     e.preventDefault();
     const zipcodes = e.target.zipcodes.value;
     const response = await axios.get(
-      `http://localhost:3001/api/neighborhoods/search?zipcode=${zipcodes}`
+      `${BaseURL}/neighborhoods/search?zipcode=${zipcodes}`
     );
     const newRecommendation = {
       category: e.target.category.value,
@@ -27,10 +27,7 @@ function Recommendations(props) {
       neighborhoodId: response.data[0].id,
       userId: props.id
     };
-    await axios.post(
-      `http://localhost:3001/api/recommendations/`,
-      newRecommendation
-    );
+    await axios.post(`${BaseURL}/recommendations/`, newRecommendation);
     window.location.reload();
   }
 
@@ -49,9 +46,14 @@ function Recommendations(props) {
     const res = await axios.get(`${BaseURL}/neighborhoods/`);
     setZips(res.data.neighborhoods);
   };
+  const getRecommendations = async (e) => {
+    const res = await axios.get(`${BaseURL}/recommendations/`);
+    setRecommendations(res.data.recommendations);
+  };
 
   useEffect(() => {
     getNeighborhoods();
+    getRecommendations();
   }, []);
 
   return (
@@ -86,7 +88,6 @@ function Recommendations(props) {
                   </div>
                   <br />
                 </div>
-<<<<<<< HEAD
                 {recommendations.map((element) => {
                   if (element.userId === parseInt(props.id)) {
                     return (
@@ -111,7 +112,7 @@ function Recommendations(props) {
                               id="xbuttonid"
                               onClick={async () => {
                                 await axios.delete(
-                                  `http://localhost:3001/api/recommendations/${element.id}`
+                                  `${BaseURL}/recommendations/${element.id}`
                                 );
                                 window.location.reload();
                               }}
@@ -129,8 +130,6 @@ function Recommendations(props) {
                     );
                   }
                 })}
-=======
->>>>>>> main
                 <Likes
                   recommendation_id={element.id}
                   authenticated={props.authenticated}
@@ -139,7 +138,6 @@ function Recommendations(props) {
             );
           })
         : null}
-<<<<<<< HEAD
       {props.authenticated ? (
         <div>
           <h1>Make a new Recommendation</h1>
@@ -184,8 +182,6 @@ function Recommendations(props) {
           </Link>
         </div>
       )}
-=======
->>>>>>> main
     </div>
   );
 }

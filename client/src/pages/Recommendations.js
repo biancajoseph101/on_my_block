@@ -8,9 +8,6 @@ function Recommendations(props) {
   const [click, setClick] = useState(false);
   const [results, setResults] = useState([]);
 
-  const newid = Math.floor(Math.random() * 500000) + 1;
-  const newuserid = Math.floor(Math.random() * 10) + 1;
-
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
@@ -22,12 +19,10 @@ function Recommendations(props) {
       `http://localhost:3001/api/neighborhoods/search?zipcode=${zipcodes}`
     );
     const newRecommendation = {
-      id: newid,
       category: e.target.category.value,
       content: e.target.content.value,
       likes: 0,
-      neighborhoodId: response.data[0].id,
-      userId: newuserid
+      neighborhoodId: response.data[0].id
     };
     await axios.post(
       `http://localhost:3001/api/recommendations/`,
@@ -71,6 +66,7 @@ function Recommendations(props) {
             );
           })}
         </select>
+        <br />
         <button>Submit</button>
         <hr />
       </form>

@@ -22,7 +22,7 @@ getlikes()
     if (click === false) {
       const newLikes = likes+1
       setNewLikes(newLikes)
-     const recommendations = await axios.put(
+      const recommendations = await axios.put(
         `${BaseURL}/recommendations/${props.recommendation_id}`,
         {
           likes: newLikes
@@ -54,7 +54,7 @@ getlikes()
           <button onClick={handleLike}>like</button>
         </>
       ) : null}
-      {likes}
+      <h1>number of likes: </h1>{likes}
     </div>
   )
 }

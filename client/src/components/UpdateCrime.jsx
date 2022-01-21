@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import { BaseURL } from "../globals";
 
 const UpdateCrime = (props) => {
 
     const getResults = async () => {
-        const res = await axios.get(`http://localhost:3001/api/tips/${props.match.params.id}`)
+        const res = await axios.get(`${BaseURL}/tips/${props.match.params.id}`)
         setNewPost(res.data.tips)
     }
 
@@ -23,7 +24,7 @@ const UpdateCrime = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.put(`http://localhost:3001/api/tips/${props.match.params.id}`, {
+        axios.put(`${BaseURL}/tips/${props.match.params.id}`, {
             title: newPost.title,
             content: newPost.content,
             neighborhoodId: newPost.neighborhoodId,

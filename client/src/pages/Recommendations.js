@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Likes from '../components/Likes';
+import { BaseURL } from '../globals';
 
 function Recommendations(props) {
   const [search, setSearch] = useState('');
@@ -36,7 +37,7 @@ function Recommendations(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await axios.get(
-      `http://localhost:3001/api/recommendations/search?zipcode=${search}`
+      `${BaseURL}/recommendations/search?zipcode=${search}`
     );
     setResults(response.data.neighborhoodRecommendations);
     setClick(true);
@@ -45,17 +46,12 @@ function Recommendations(props) {
   const [zips, setZips] = useState([]);
 
   const getNeighborhoods = async (e) => {
-    const res = await axios.get(`http://localhost:3001/api/neighborhoods/`);
+    const res = await axios.get(`${BaseURL}/neighborhoods/`);
     setZips(res.data.neighborhoods);
-  };
-  const getRecommendations = async (e) => {
-    const res = await axios.get(`http://localhost:3001/api/recommendations/`);
-    setRecommendations(res.data.recommendations);
   };
 
   useEffect(() => {
     getNeighborhoods();
-    getRecommendations();
   }, []);
 
   return (
@@ -90,6 +86,7 @@ function Recommendations(props) {
                   </div>
                   <br />
                 </div>
+<<<<<<< HEAD
                 {recommendations.map((element) => {
                   if (element.userId === parseInt(props.id)) {
                     return (
@@ -132,6 +129,8 @@ function Recommendations(props) {
                     );
                   }
                 })}
+=======
+>>>>>>> main
                 <Likes
                   recommendation_id={element.id}
                   authenticated={props.authenticated}
@@ -140,6 +139,7 @@ function Recommendations(props) {
             );
           })
         : null}
+<<<<<<< HEAD
       {props.authenticated ? (
         <div>
           <h1>Make a new Recommendation</h1>
@@ -184,6 +184,8 @@ function Recommendations(props) {
           </Link>
         </div>
       )}
+=======
+>>>>>>> main
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Redirect, Link } from "react-router-dom";
+import { BaseURL } from '../globals'
 
 const CreateComment = (props) => {
 
@@ -12,7 +13,7 @@ const CreateComment = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post(`http://localhost:3001/api/comments/`, {
+        axios.post(`${BaseURL}/comments/`, {
             content: comment,
             neighborhoodId: props.neighborhoodId,
             userId: props.id,

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { BaseURL } from '../globals';
 
 function CrimeTipPost(props) {
   const [click, setClick] = useState(false);
@@ -9,7 +10,7 @@ function CrimeTipPost(props) {
     e.preventDefault();
     const zipcode = e.target.zipcode.value;
     const response = await axios.get(
-      `http://localhost:3001/api/neighborhoods/search?zipcode=${zipcode}`
+      `${BaseURL}/neighborhoods/search?zipcode=${zipcode}`
     );
     console.log(response.data[0].id);
     const newCrime = {
@@ -20,10 +21,7 @@ function CrimeTipPost(props) {
       userId: props.userId
     };
 
-    const postResponse = await axios.post(
-      'http://localhost:3001/api/tips/',
-      newCrime
-    );
+    const postResponse = await axios.post(`${BaseURL}/tips/`, newCrime);
     setClick(true);
   }
 

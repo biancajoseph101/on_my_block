@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Comments from "./Comments";
 import CreateComment from "./CreateComment";
+import { BaseURL } from "../globals";
 
 const CrimeDetails = (props) => {
-
     const [results, setResults] = useState({})
 
     const getResults = async () => {
-        const res = await axios.get(`http://localhost:3001/api/tips/${props.match.params.id}`)
+        const res = await axios.get(`${BaseURL}/tips/${props.match.params.id}`)
         setResults(res.data.tips)
     }
 
@@ -17,7 +17,7 @@ const CrimeDetails = (props) => {
     }, [])
 
     const handleDelete = () => {
-        axios.delete(`http://localhost:3001/api/tips/${props.match.params.id}`)
+        axios.delete(`${BaseURL}/tips/${props.match.params.id}`)
         props.history.push('/')
     }
 

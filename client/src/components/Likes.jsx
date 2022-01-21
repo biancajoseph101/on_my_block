@@ -1,12 +1,13 @@
 import React, { useState } from "react"
 import axios from "axios"
+import { BaseURL } from '../globals'
 // import { fa } from "faker/lib/locales"
 
 function Likes(props) {
   const [likes, setLikes] = useState(0)
 
   const getlikes = async (e) => {
-    const likes = await axios.get(`http://localhost:3001/api/recommendations/${props.recommendation_id}`)
+    const likes = await axios.get(`${BaseURL}/recommendations/${props.recommendation_id}`)
     setLikes(likes.data.recommendation.likes)
     
 }
@@ -22,7 +23,7 @@ getlikes()
       const newLikes = likes+1
       setNewLikes(newLikes)
      const recommendations = await axios.put(
-        `http://localhost:3001/api/recommendations/${props.recommendation_id}`,
+        `${BaseURL}/recommendations/${props.recommendation_id}`,
         {
           likes: newLikes
         }
@@ -36,7 +37,7 @@ getlikes()
       const newLikes = likes-1
       setNewLikes(newLikes)
       await axios.put(
-        `http://localhost:3001/api/recommendations/${props.recommendation_id}`,
+        `${BaseURL}/recommendations/${props.recommendation_id}`,
         {
           likes:newLikes,
         }

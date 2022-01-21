@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { BaseURL } from "../globals";
 
 const SearchBar = (props) => {
 
@@ -14,7 +15,7 @@ const SearchBar = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const res = await axios.get(`http://localhost:3001/api/tips/search?zipcode=${search}`)
+        const res = await axios.get(`${BaseURL}/tips/search?zipcode=${search}`)
         console.log(res.data.item)
         setResults(res.data.item)
         setClick(true)
@@ -26,7 +27,7 @@ const SearchBar = (props) => {
     const [zips, setZips] = useState([])
 
     const getNeighborhoods = async (e) => {
-        const res = await axios.get(`http://localhost:3001/api/neighborhoods/`)
+        const res = await axios.get(`${BaseURL}/neighborhoods/`)
         setZips(res.data.neighborhoods)
     }
 
@@ -37,10 +38,7 @@ const SearchBar = (props) => {
     return (
         <div>
 
-            {
-                (props.authenticated) ? <h1>Welcome back, {props.username}!</h1> : null
-            }
-            <h1>What's the Talk of the Town?</h1>
+            <h1>Search a zipcode to find posted crimetips in the area</h1>
             <form className="homeform" onSubmit={handleSubmit}>
                 <label htmlFor="search">Zip Code: </label>
 

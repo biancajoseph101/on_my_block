@@ -11,6 +11,9 @@
   text-transform: uppercase;
   font-family: Andale Mono;
 }
+.App-background {
+  opacity: 0.5;
+}
 
 .App-logo {
   height: 40vmin;
@@ -24,15 +27,15 @@
 nav {
   font-family: Andale Mono;
   min-height: fit-content;
-  margin: 3px;
-  padding: 5px;
-  border-top: 5px;
+  margin: .1rem;
+  padding: .2rem;
+  border-top: .3em;
   text-align: center;
   max-width: cover;
   background-color: #f5f3eee0;
   opacity: 0.4;
   border: 0.2em outset rgb(10, 4, 39);
-  border-radius: 4px;
+  border-radius: .2rem;
   transition: all 0.5s;
 }
 
@@ -112,12 +115,11 @@ h3 {
   border-radius: 1em;
   padding: 0.5em;
   margin: 1.2rem;
-  max-width: fit-content;
-  text-align: center;
+max-height:fit-content;
+max-width: 20em;
   opacity: 0.7;
 }
 .signinput {
-  height: 20%;
   padding: 0.5em;
   margin: 0.8em;
   border-top-left-radius: 2em 2em;
@@ -217,6 +219,7 @@ h3 {
   list-style-type: none;
   margin: 0;
   padding: 0;
+ 
 }
 
 .nav li {
@@ -249,7 +252,7 @@ img {
   background: rgba(198, 18, 18, 0.452);
   border: 0.5em solid black;
   animation-name: alert;
-  animation-duration: 3s;
+  animation-duration: 2s;
   animation-iteration-count: infinite;
   box-shadow: 0 0 0.4rem 0.4rem rgb(53, 49, 49);
 }
@@ -272,6 +275,8 @@ img {
   margin: 0 0 0 1rem;
   transition: all 0.5s;
   align-items: right;
+  object-fit: cover;
+    object-position: 1px 10px;
 }
 
 .navicon:hover {
@@ -282,6 +287,7 @@ img {
 
 a {
   color: rgb(0, 0, 0);
+  max-height: fit-content;
 }
 
 a:hover {
@@ -376,7 +382,7 @@ a:hover {
 p {
   font-family: Andale Mono;
   color: rgb(255, 255, 255);
-  background-color: rgba(245, 222, 179, 0.185);
+  background-color: rgba(0, 0, 0, 0.606);
   border-top-left-radius: 2em 2em;
   border-top-right-radius: 2em 2em;
   border-bottom-left-radius: 2em 2em;
@@ -462,7 +468,8 @@ p {
   font-size: 1em;
   background-color: rgba(122, 135, 151, 0.527);
   border-top-left-radius: 1em 1em;
-  padding: 5px;
+  padding: .5em;
+  margin: 2em;
   border-top-right-radius: 2em 2em;
   border-bottom-left-radius: 2em 2em;
   border-bottom-right-radius: 2em 2em;
@@ -518,4 +525,83 @@ button {
 button:hover {
   font-weight: bolder;
   background-color: rgb(140, 162, 201);
+}
+
+.homeicon{
+  max-height: 40vh;
+    margin: 0 0 0 1rem;
+    transition: all 0.5s;
+    align-items: right;
+    object-fit: cover;
+    object-position: .01em 1.6em;
+}
+
+.logoutnav{
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.homelinks{
+  color:white;
+}
+
+.hometext{
+  padding: 1em;
+  background-color: rgba(0, 0, 0, 0.63);
+}
+.elementContent{
+  background-color: rgba(0, 0, 0, 0.455);
+}
+.form{
+  background-color: rgba(255, 255, 255, 0.517);
+  width:100%;
+  
+}
+.formField{
+  min-width: 40vw;
+
+}
+
+.likes{
+  background-color: rgba(0, 0, 0, 0.291);
+  color: white;
+}
+
+.formTextArea {
+  max-height: 4vh;
+  min-width: 30vw;
+  margin: 0.8em;
+  font-family: Andale Mono;
+  text-transform: uppercase;
+  color: rgb(245, 245, 245);
+  font-size: large;
+  font-weight: 500;
+  background: rgba(186, 193, 197, 0.616);
+  border: 3px ridge rgba(255, 255, 255, 0.829);
+  padding: 0.4rem 0.4rem 0.4rem 0.4rem;
+  transition: all 0.2s;
+}
+
+.formTextAreawitness {
+  min-height: 15vh;
+  min-width: 30vw;
+  margin: 0.8em;
+  font-family: Andale Mono;
+  text-transform: uppercase;
+  color: rgb(245, 245, 245);
+  font-size: large;
+  font-weight: 500;
+  background: rgba(186, 193, 197, 0.616);
+  border: 3px ridge rgba(255, 255, 255, 0.829);
+  padding: 0.4rem 0.4rem 0.4rem 0.4rem;
+  transition: all 0.2s;
+}
+
+.commentsubmit{
+  min-width: 30vw;
+}
+
+.allcomments{
+  min-width: 40vw;
+  
 }

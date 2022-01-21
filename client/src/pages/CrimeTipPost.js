@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { BaseURL } from '../globals';
 
 function CrimeTipPost(props) {
   const [click, setClick] = useState(false);
@@ -9,7 +10,7 @@ function CrimeTipPost(props) {
     e.preventDefault();
     const zipcode = e.target.zipcode.value;
     const response = await axios.get(
-      `http://localhost:3001/api/neighborhoods/search?zipcode=${zipcode}`
+      `${BaseURL}/neighborhoods/search?zipcode=${zipcode}`
     );
     console.log(response.data[0].id);
     const newCrime = {
@@ -17,16 +18,10 @@ function CrimeTipPost(props) {
       content: e.target.content.value,
       neighborhoodId: response.data[0].id,
 
-      userId: props.userId,
-    }
-    
-    const postResponse = await axios.post("http://localhost:3001/api/tips/", newCrime)
-    setClick(true)
+      userId: props.userId
+    };
 
-    const postResponse = await axios.post(
-      'http://localhost:3001/api/tips/',
-      newCrime
-    );
+    const postResponse = await axios.post(`${BaseURL}/tips/`, newCrime);
     setClick(true);
   }
 
@@ -36,42 +31,49 @@ function CrimeTipPost(props) {
 
       {props.authenticated ? (
         <form onSubmit={createCrimeTip}>
-          <div>
-            <label>Crime</label>
-            <input
-              name="title"
-              type="text"
-              placeholder="Crime"
-              // onChange={handleChange}
-            />
-          </div>
+          <h1>Let's keep the city safe</h1>
+          <div className="form">
+            <div className="formField">
+              <h2>Crime</h2>
+              <input
+                name="title"
+                type="text"
+                placeholder="Crime"
+                className="formTextArea"
+                // onChange={handleChange}
+              />
+            </div>
 
-          <div>
-            <label>Zipcode</label>
-            <input
-              name="zipcode"
-              type="text"
-              placeholder="Enter a zipcode"
-              // onChange={handleChange}
-            />
-          </div>
+            <div className="formField">
+              <h2>Zipcode</h2>
+              <input
+                name="zipcode"
+                type="text"
+                placeholder="Enter a zipcode"
+                className="formTextArea"
+                // onChange={handleChange}
+              />
+            </div>
 
-          <div>
-            <label>Crime witnessed</label>
-            <textarea
-              name="content"
-              type="text"
-              placeholder="Describe the crime"
-              // onChange={handleChange}
-            />
+            <div className="formField">
+              <h2>Crime witnessed</h2>
+              <textarea
+                name="content"
+                type="text"
+                placeholder="Describe the crime"
+                className="formTextAreawitness"
+                // onChange={handleChange}
+              />
+            </div>
           </div>
           <button type="submit">Submit</button>
         </form>
       ) : (
-        <h1>
-          Want to post a crime you just witnessed?{' '}
+        <div>
+          <h1>Want to post a crime you just witnessed?</h1>
+          <hr />
           <Link to="/login">Login</Link>
-        </h1>
+        </div>
       )}
     </div>
   );

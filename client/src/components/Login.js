@@ -15,13 +15,13 @@ export default function Login(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = await LoginUser(formValues);
-    // setFormValues({ username: '', password: '' });
     props.setUser(payload);
     props.toggleAuthenticated(true);
   };
 
   return (
     <div>
+      <h1>The word on the street is... </h1>
       <hr />
       {props.authenticated === true ? <Redirect to="/" /> : null}
 
@@ -47,7 +47,7 @@ export default function Login(props) {
         <button className="loginbutton">Login</button>
       </form>
       <h1>
-        Don't have an account?<Link to="/signup">Sign Up</Link>
+        Don't have an account? <Link to="/signup">Sign Up</Link>
       </h1>
     </div>
   );

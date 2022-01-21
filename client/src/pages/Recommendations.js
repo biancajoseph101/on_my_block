@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Likes from '../components/Likes';
 
@@ -7,9 +8,33 @@ function Recommendations(props) {
   const [click, setClick] = useState(false);
   const [results, setResults] = useState([]);
 
+  const newid = Math.floor(Math.random() * 500000) + 1;
+  const newuserid = Math.floor(Math.random() * 10) + 1;
+
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
+
+  async function createRecommendations(e) {
+    e.preventDefault();
+    const zipcodes = e.target.zipcodes.value;
+    const response = await axios.get(
+      `http://localhost:3001/api/neighborhoods/search?zipcode=${zipcodes}`
+    );
+    const newRecommendation = {
+      id: newid,
+      category: e.target.category.value,
+      content: e.target.content.value,
+      likes: 0,
+      neighborhoodId: response.data[0].id,
+      userId: newuserid
+    };
+    await axios.post(
+      `http://localhost:3001/api/recommendations/`,
+      newRecommendation
+    );
+    window.location.reload();
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,59 +45,100 @@ function Recommendations(props) {
     setClick(true);
   };
   // Neighborhood Data
-  const [zips, setZips] = useState([])
+  const [zips, setZips] = useState([]);
 
   const getNeighborhoods = async (e) => {
-      const res = await axios.get(`http://localhost:3001/api/neighborhoods/`)
-      setZips(res.data.neighborhoods)
-  }
+    const res = await axios.get(`http://localhost:3001/api/neighborhoods/`);
+    setZips(res.data.neighborhoods);
+  };
 
   useEffect(() => {
-      getNeighborhoods()
-  }, [])
+    getNeighborhoods();
+  }, []);
 
   return (
-
     <div className="recListing">
-      <h1>Recommendations</h1>
+      <h1>See all recommendations in the area</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="recommendations">zip code</label>
         <select name="rec" id="rec" onChange={handleChange}>
           <option value="">Choose...</option>
-          {
-                        zips.map((element) => {
-                            return (
-                                <React.Fragment key={element.id}>
-                                    <option value={element.zipcode}>{element.zipcode}</option>
-                                </React.Fragment>
-                            )
-                        })
-                    }
+          {zips.map((element) => {
+            return (
+              <React.Fragment key={element.id}>
+                <option value={element.zipcode}>{element.zipcode}</option>
+              </React.Fragment>
+            );
+          })}
         </select>
         <button>Submit</button>
+        <hr />
       </form>
       {click
         ? results.map((element) => {
             return (
               <div>
-                  <div className='elementContent'>
-                <h3>Neighborhood: {element.Neighborhood.name}</h3>
-                <h3>Zipcode: {element.Neighborhood.zipcode}</h3>
-                <div key={element.id}>
-                  <h3>Category: {element.category}</h3>
-                  <p>{element.content}</p>
+                <div className="elementContent">
+                  <h3>Neighborhood: {element.Neighborhood.name}</h3>
+                  <h3>Zipcode: {element.Neighborhood.zipcode}</h3>
+                  <div key={element.id}>
+                    <h3>Category: {element.category}</h3>
+                    <p>{element.content}</p>
                   </div>
                   <br />
-                  </div>
-                  <Likes recommendation_id={element.id} authenticated={props.authenticated}/>
-                
+                </div>
+                <Likes
+                  recommendation_id={element.id}
+                  authenticated={props.authenticated}
+                />
               </div>
             );
           })
-          : null}
+        : null}
+      {props.authenticated ? (
+        <div>
+          <h1>Make a new Recommendation</h1>
+          <form onSubmit={createRecommendations}>
+            <label htmlFor="create_a_recommendation">zip code</label>
+            <select name="zipcodes" id="rec" onChange={handleChange}>
+              <option>Choose...</option>
+              {zips.map((element) => {
+                return (
+                  <React.Fragment key={element.id}>
+                    <option value={element.zipcode}>{element.zipcode}</option>
+                  </React.Fragment>
+                );
+              })}
+            </select>
+            <br />
+            <input
+              name="category"
+              type="text"
+              placeholder="category"
+              className="formTextArea"
+              required
+            />
+            <br />
+            <textarea
+              name="content"
+              type="text"
+              placeholder="Details"
+              className="formTextAreawitness"
+              required
+            />
+            <br />
+            <button>Post</button>
+          </form>
+        </div>
+      ) : (
+        <div>
+          <h1>Do you wanna post some recommendatoins?</h1>
+          <hr />
+          <Link to="/login">Login!</Link>
+        </div>
+      )}
     </div>
-        
   );
 }
-     
+
 export default Recommendations;

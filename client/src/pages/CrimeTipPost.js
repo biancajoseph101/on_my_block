@@ -40,7 +40,6 @@ function CrimeTipPost(props) {
                 type="text"
                 placeholder="Crime"
                 className="formTextArea"
-                // onChange={handleChange}
               />
             </div>
 
@@ -51,7 +50,6 @@ function CrimeTipPost(props) {
                 type="text"
                 placeholder="Enter a zipcode"
                 className="formTextArea"
-                // onChange={handleChange}
               />
             </div>
 
@@ -62,7 +60,6 @@ function CrimeTipPost(props) {
                 type="text"
                 placeholder="Describe the crime"
                 className="formTextAreawitness"
-                // onChange={handleChange}
               />
             </div>
           </div>
@@ -72,7 +69,9 @@ function CrimeTipPost(props) {
         <div>
           <h1>Want to post a crime you just witnessed?</h1>
           <hr />
-          <Link to="/login">Login</Link>
+          <Link className="biggerlinks" to="/login">
+            Login
+          </Link>
         </div>
       )}
     </div>

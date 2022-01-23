@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Likes from '../components/Likes';
 import { BaseURL } from '../globals';
@@ -7,10 +8,28 @@ function Recommendations(props) {
   const [search, setSearch] = useState('');
   const [click, setClick] = useState(false);
   const [results, setResults] = useState([]);
+  const [recommendations, setRecommendations] = useState([]);
 
   const handleChange = (e) => {
     setSearch(e.target.value);
   };
+
+  async function createRecommendations(e) {
+    e.preventDefault();
+    const zipcodes = e.target.zipcodes.value;
+    const response = await axios.get(
+      `${BaseURL}/neighborhoods/search?zipcode=${zipcodes}`
+    );
+    const newRecommendation = {
+      category: e.target.category.value,
+      content: e.target.content.value,
+      likes: 0,
+      neighborhoodId: response.data[0].id,
+      userId: props.id
+    };
+    await axios.post(`${BaseURL}/recommendations/`, newRecommendation);
+    window.location.reload();
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,14 +46,19 @@ function Recommendations(props) {
     const res = await axios.get(`${BaseURL}/neighborhoods/`);
     setZips(res.data.neighborhoods);
   };
+  const getRecommendations = async (e) => {
+    const res = await axios.get(`${BaseURL}/recommendations/`);
+    setRecommendations(res.data.recommendations);
+  };
 
   useEffect(() => {
     getNeighborhoods();
+    getRecommendations();
   }, []);
 
   return (
     <div className="recListing">
-      <h1>Recommendations</h1>
+      <h1>See all recommendations in the area</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="recommendations">zip code</label>
         <select name="rec" id="rec" onChange={handleChange}>
@@ -47,7 +71,9 @@ function Recommendations(props) {
             );
           })}
         </select>
+        <br />
         <button>Submit</button>
+        <hr />
       </form>
       {click
         ? results.map((element) => {
@@ -62,6 +88,48 @@ function Recommendations(props) {
                   </div>
                   <br />
                 </div>
+                {recommendations.map((element) => {
+                  if (element.userId === parseInt(props.id)) {
+                    return (
+                      <div key={element.id}>
+                        <p className="allcomments">
+                          Category: {element.category}
+                        </p>
+                        <p className="allcomments">{element.content}</p>
+                        {element.userId === props.id && (
+                          <>
+                            <button
+                              id="editbuttonid"
+                              onClick={() =>
+                                props.history.push(
+                                  `/recommendations/update/${element.id}`
+                                )
+                              }
+                            >
+                              EDIT
+                            </button>
+                            <button
+                              id="xbuttonid"
+                              onClick={async () => {
+                                await axios.delete(
+                                  `${BaseURL}/recommendations/${element.id}`
+                                );
+                                window.location.reload();
+                              }}
+                            >
+                              Delete
+                            </button>
+                            <Likes
+                              recommendation_id={element.id}
+                              authenticated={props.authenticated}
+                            />
+                            <hr />
+                          </>
+                        )}
+                      </div>
+                    );
+                  }
+                })}
                 <Likes
                   recommendation_id={element.id}
                   authenticated={props.authenticated}
@@ -70,6 +138,50 @@ function Recommendations(props) {
             );
           })
         : null}
+      {props.authenticated ? (
+        <div>
+          <h1>Make a new Recommendation</h1>
+          <form onSubmit={createRecommendations}>
+            <label htmlFor="create_a_recommendation">zip code</label>
+            <select name="zipcodes" id="rec" onChange={handleChange}>
+              <option>Choose...</option>
+              {zips.map((element) => {
+                return (
+                  <React.Fragment key={element.id}>
+                    <option value={element.zipcode}>{element.zipcode}</option>
+                  </React.Fragment>
+                );
+              })}
+            </select>
+            <br />
+            <input
+              name="category"
+              type="text"
+              placeholder="category"
+              className="formTextArea"
+              required
+            />
+            <br />
+            <textarea
+              name="content"
+              type="text"
+              placeholder="Details"
+              className="formTextAreawitness"
+              required
+            />
+            <br />
+            <button>Post</button>
+          </form>
+        </div>
+      ) : (
+        <div>
+          <h1>Do you wanna post some recommendations?</h1>
+          <hr />
+          <Link className="biggerlinks" to="/login">
+            Login!
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

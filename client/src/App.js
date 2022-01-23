@@ -12,6 +12,7 @@ import UpdateCrime from './components/UpdateCrime';
 import CrimeTipPost from './pages/CrimeTipPost';
 import About from './pages/About';
 import Safety from './pages/Safety';
+import EditRecommendations from './components/EditRecommendations';
 import { CheckSession } from './services/Auth';
 
 function App(props) {
@@ -60,7 +61,17 @@ function App(props) {
               />
             )}
           />
-          <Route exact path="/recommendations" component={()=><Recommendations authenticated={authenticated}/>} />
+          <Route
+            exact
+            path="/recommendations"
+            component={(props) => (
+              <Recommendations
+                {...props}
+                id={user.id}
+                authenticated={authenticated}
+              />
+            )}
+          />
           <Route exact path="/signup" component={Signup} />
           <Route
             path="/login"
@@ -109,6 +120,17 @@ function App(props) {
             )}
           />
           <Route exact path="/safety" component={Safety} />
+          <Route
+            exact
+            path="/recommendations/update/:id"
+            component={(props) => (
+              <EditRecommendations
+                {...props}
+                userId={user.id}
+                authenticated={authenticated}
+              />
+            )}
+          />
         </Switch>
       </main>
     </div>
